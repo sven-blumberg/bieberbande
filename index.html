@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biberbande – Der clevere Kartentausch</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ==================== START SCREEN ==================== -->
+  <div id="start-screen">
+    <div class="start-container">
+      <div class="logo-area">
+        <div class="beaver-logo">🦫</div>
+        <h1>Biberbande</h1>
+        <p class="subtitle">Der clevere Kartentausch!</p>
+      </div>
+      <div class="start-options">
+        <label>Anzahl Spieler</label>
+        <div class="player-buttons">
+          <button class="player-count-btn" data-count="2">2</button>
+          <button class="player-count-btn active" data-count="3">3</button>
+          <button class="player-count-btn" data-count="4">4</button>
+          <button class="player-count-btn" data-count="5">5</button>
+          <button class="player-count-btn" data-count="6">6</button>
+        </div>
+        <label>Davon Mitspieler (lokal)</label>
+        <div class="player-buttons">
+          <button class="human-count-btn active" data-humans="1">1 (Solo)</button>
+          <button class="human-count-btn" data-humans="2">2</button>
+          <button class="human-count-btn" data-humans="3">3</button>
+          <button class="human-count-btn" data-humans="4">4</button>
+        </div>
+        <label>Schwierigkeitsgrad (KI)</label>
+        <div class="difficulty-buttons">
+          <button class="diff-btn" data-diff="easy">Leicht</button>
+          <button class="diff-btn active" data-diff="medium">Mittel</button>
+          <button class="diff-btn" data-diff="hard">Schwer</button>
+          <button class="diff-btn" data-diff="impossible">Unmöglich</button>
+        </div>
+        <button id="start-btn">Spiel starten</button>
+      </div>
+      <div class="rules-summary">
+        <h3>Kurzregeln</h3>
+        <ul>
+          <li>Jeder hat 4 verdeckte Karten – nur die 2 äußeren darfst du anfangs ansehen</li>
+          <li>Ziel: Möglichst niedrige Kartenwerte sammeln</li>
+          <li>Pro Zug: Karte vom Stapel ziehen, tauschen oder ablegen</li>
+          <li>Sonderkarten: Spähen, Tauschen, Zweimal Ziehen</li>
+          <li>Verrückte Karten: Chaosbiber, Spion, Blitz, Tornado, Freeze, Spiegel, Dieb, Glückspilz</li>
+          <li>Klopfen = letzte Runde einläuten</li>
+        </ul>
+      </div>
+      <button id="card-ref-start-btn" class="card-ref-trigger">📖 Kartenübersicht</button>
+      <div class="highscore-area">
+        <h3>🏆 Bestenliste</h3>
+        <div id="highscore-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== GAME SCREEN ==================== -->
+  <div id="game-screen" class="hidden">
+
+    <!-- Header bar -->
+    <div id="game-header">
+      <div id="round-info">Runde 1</div>
+      <div id="score-board"></div>
+      <button id="card-ref-btn" class="header-icon-btn" title="Kartenübersicht (Taste: K)">📖</button>
+      <button id="admin-toggle" title="Admin Panel (Taste: A)">&#9881;</button>
+    </div>
+
+    <!-- Admin Panel Sidebar -->
+    <div id="admin-panel" class="admin-panel hidden">
+      <div class="admin-header">
+        <h3>Admin Panel</h3>
+        <button id="admin-close">&times;</button>
+      </div>
+      <div class="admin-body" id="admin-body"></div>
+    </div>
+
+    <!-- Game table -->
+    <div id="game-table">
+
+      <!-- Opponent areas (dynamically filled) -->
+      <div id="opponents-area"></div>
+
+      <!-- Center: Piles + drawn card -->
+      <div id="table-center">
+        <div id="draw-pile" class="pile">
+          <div class="card card-back pile-card">
+            <span class="pile-count"></span>
+          </div>
+          <div class="pile-label">Nachziehstapel</div>
+        </div>
+
+        <div id="drawn-card-area" class="hidden">
+          <div class="drawn-card-wrapper">
+            <div id="drawn-card" class="card"></div>
+            <div class="drawn-label">Gezogene Karte</div>
+          </div>
+        </div>
+
+        <div id="discard-pile" class="pile">
+          <div id="discard-top" class="card empty-pile">
+            <span>leer</span>
+          </div>
+          <div class="pile-label">Ablagestapel</div>
+        </div>
+      </div>
+
+      <!-- Message + Actions -->
+      <div id="info-bar">
+        <div id="game-message">Willkommen bei Biberbande!</div>
+        <div id="action-buttons"></div>
+      </div>
+
+      <!-- Human player area -->
+      <div id="human-player">
+        <div class="player-banner human-banner">
+          <span class="player-name">Du</span>
+          <span class="player-round-score"></span>
+        </div>
+        <div id="human-cards" class="player-cards"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== ROUND END OVERLAY ==================== -->
+  <div id="round-overlay" class="overlay hidden">
+    <div class="overlay-content">
+      <h2 id="round-end-title">Rundenende</h2>
+      <div id="round-results"></div>
+      <button id="next-round-btn">Nächste Runde</button>
+    </div>
+  </div>
+
+  <!-- ==================== GAME OVER OVERLAY ==================== -->
+  <div id="gameover-overlay" class="overlay hidden">
+    <div class="overlay-content">
+      <h2>Spielende</h2>
+      <div id="final-results"></div>
+      <button id="new-game-btn">Neues Spiel</button>
+    </div>
+  </div>
+
+  <!-- ==================== PEEK OVERLAY ==================== -->
+  <div id="peek-overlay" class="overlay hidden">
+    <div class="overlay-content peek-content">
+      <h2>Karte angesehen</h2>
+      <div id="peek-card-display"></div>
+      <p id="peek-message"></p>
+      <button id="peek-close-btn">Verstanden</button>
+    </div>
+  </div>
+
+  <!-- ==================== PASS DEVICE OVERLAY ==================== -->
+  <div id="pass-device-overlay" class="overlay hidden">
+    <div class="overlay-content pass-device-content">
+      <h2 id="pass-device-title">Weitergeben!</h2>
+      <p id="pass-device-message">Gib das Gerät weiter.</p>
+      <button id="pass-device-btn" class="pass-device-ready-btn">Ich bin bereit!</button>
+    </div>
+  </div>
+
+  <!-- ==================== CARD REFERENCE OVERLAY ==================== -->
+  <div id="card-ref-overlay" class="overlay hidden">
+    <div class="overlay-content card-ref-content">
+      <h2>📖 Kartenübersicht</h2>
+      <div id="card-ref-grid"></div>
+      <button id="card-ref-close">Schließen</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

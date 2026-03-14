@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beaver Gang – The Clever Card Swap</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ==================== START SCREEN ==================== -->
+  <div id="start-screen">
+    <div class="start-container">
+      <div class="logo-area">
+        <div class="beaver-logo">🦫</div>
+        <h1>Beaver Gang</h1>
+        <p class="subtitle">The Clever Card Swap!</p>
+      </div>
+      <div class="start-options">
+        <label>Number of Players</label>
+        <div class="player-buttons">
+          <button class="player-count-btn" data-count="2">2</button>
+          <button class="player-count-btn active" data-count="3">3</button>
+          <button class="player-count-btn" data-count="4">4</button>
+          <button class="player-count-btn" data-count="5">5</button>
+          <button class="player-count-btn" data-count="6">6</button>
+        </div>
+        <label>Local Players</label>
+        <div class="player-buttons">
+          <button class="human-count-btn active" data-humans="1">1 (Solo)</button>
+          <button class="human-count-btn" data-humans="2">2</button>
+          <button class="human-count-btn" data-humans="3">3</button>
+          <button class="human-count-btn" data-humans="4">4</button>
+        </div>
+        <label>AI Difficulty</label>
+        <div class="difficulty-buttons">
+          <button class="diff-btn" data-diff="easy">Easy</button>
+          <button class="diff-btn active" data-diff="medium">Medium</button>
+          <button class="diff-btn" data-diff="hard">Hard</button>
+          <button class="diff-btn" data-diff="impossible">Impossible</button>
+        </div>
+        <button id="start-btn">Start Game</button>
+      </div>
+      <div class="rules-summary">
+        <h3>Quick Rules</h3>
+        <ul>
+          <li>Each player has 4 face-down cards – you may peek at the 2 outer ones at the start</li>
+          <li>Goal: Collect the lowest card values possible</li>
+          <li>Each turn: Draw a card from the pile, swap or discard it</li>
+          <li>Special cards: Peek, Swap, Draw Two</li>
+          <li>Crazy cards: Chaos Beaver, Spy, Lightning, Tornado, Freeze, Mirror, Thief, Lucky</li>
+          <li>Knock = trigger the final round</li>
+        </ul>
+      </div>
+      <button id="card-ref-start-btn" class="card-ref-trigger">📖 Card Reference</button>
+      <div class="highscore-area">
+        <h3>🏆 Leaderboard</h3>
+        <div id="highscore-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== GAME SCREEN ==================== -->
+  <div id="game-screen" class="hidden">
+
+    <!-- Header bar -->
+    <div id="game-header">
+      <div id="round-info">Round 1</div>
+      <div id="score-board"></div>
+      <button id="card-ref-btn" class="header-icon-btn" title="Card Reference (Key: K)">📖</button>
+      <button id="admin-toggle" title="Admin Panel (Key: A)">&#9881;</button>
+    </div>
+
+    <!-- Admin Panel Sidebar -->
+    <div id="admin-panel" class="admin-panel hidden">
+      <div class="admin-header">
+        <h3>Admin Panel</h3>
+        <button id="admin-close">&times;</button>
+      </div>
+      <div class="admin-body" id="admin-body"></div>
+    </div>
+
+    <!-- Game table -->
+    <div id="game-table">
+
+      <!-- Opponent areas (dynamically filled) -->
+      <div id="opponents-area"></div>
+
+      <!-- Center: Piles + drawn card -->
+      <div id="table-center">
+        <div id="draw-pile" class="pile">
+          <div class="card card-back pile-card">
+            <span class="pile-count"></span>
+          </div>
+          <div class="pile-label">Draw Pile</div>
+        </div>
+
+        <div id="drawn-card-area" class="hidden">
+          <div class="drawn-card-wrapper">
+            <div id="drawn-card" class="card"></div>
+            <div class="drawn-label">Drawn Card</div>
+          </div>
+        </div>
+
+        <div id="discard-pile" class="pile">
+          <div id="discard-top" class="card empty-pile">
+            <span>empty</span>
+          </div>
+          <div class="pile-label">Discard Pile</div>
+        </div>
+      </div>
+
+      <!-- Message + Actions -->
+      <div id="info-bar">
+        <div id="game-message">Welcome to Beaver Gang!</div>
+        <div id="action-buttons"></div>
+      </div>
+
+      <!-- Human player area -->
+      <div id="human-player">
+        <div class="player-banner human-banner">
+          <span class="player-name">You</span>
+          <span class="player-round-score"></span>
+        </div>
+        <div id="human-cards" class="player-cards"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== ROUND END OVERLAY ==================== -->
+  <div id="round-overlay" class="overlay hidden">
+    <div class="overlay-content">
+      <h2 id="round-end-title">Round Over</h2>
+      <div id="round-results"></div>
+      <button id="next-round-btn">Next Round</button>
+    </div>
+  </div>
+
+  <!-- ==================== GAME OVER OVERLAY ==================== -->
+  <div id="gameover-overlay" class="overlay hidden">
+    <div class="overlay-content">
+      <h2>Game Over</h2>
+      <div id="final-results"></div>
+      <button id="new-game-btn">New Game</button>
+    </div>
+  </div>
+
+  <!-- ==================== PEEK OVERLAY ==================== -->
+  <div id="peek-overlay" class="overlay hidden">
+    <div class="overlay-content peek-content">
+      <h2>Card Peeked</h2>
+      <div id="peek-card-display"></div>
+      <p id="peek-message"></p>
+      <button id="peek-close-btn">Got it</button>
+    </div>
+  </div>
+
+  <!-- ==================== PASS DEVICE OVERLAY ==================== -->
+  <div id="pass-device-overlay" class="overlay hidden">
+    <div class="overlay-content pass-device-content">
+      <h2 id="pass-device-title">Pass the device!</h2>
+      <p id="pass-device-message">Hand over the device.</p>
+      <button id="pass-device-btn" class="pass-device-ready-btn">I'm ready!</button>
+    </div>
+  </div>
+
+  <!-- ==================== CARD REFERENCE OVERLAY ==================== -->
+  <div id="card-ref-overlay" class="overlay hidden">
+    <div class="overlay-content card-ref-content">
+      <h2>📖 Card Reference</h2>
+      <div id="card-ref-grid"></div>
+      <button id="card-ref-close">Close</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
