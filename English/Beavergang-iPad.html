@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Biberbande">
+  <meta name="apple-mobile-web-app-title" content="Beaver Gang">
   <meta name="mobile-web-app-capable" content="yes">
-  <title>Biberbande – Der clevere Kartentausch</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <title>Beaver Gang – The Clever Card Swap</title>
   <style>
 /* iPad touch optimizations */
 * { -webkit-tap-highlight-color: transparent; }
@@ -1558,7 +1556,11 @@ body {
 
   .overlay-content { padding: 24px 20px; }
 }
-  </style>
+
+</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -1567,11 +1569,11 @@ body {
     <div class="start-container">
       <div class="logo-area">
         <div class="beaver-logo">🦫</div>
-        <h1>Biberbande</h1>
-        <p class="subtitle">Der clevere Kartentausch!</p>
+        <h1>Beaver Gang</h1>
+        <p class="subtitle">The Clever Card Swap!</p>
       </div>
       <div class="start-options">
-        <label>Anzahl Spieler</label>
+        <label>Number of Players</label>
         <div class="player-buttons">
           <button class="player-count-btn" data-count="2">2</button>
           <button class="player-count-btn active" data-count="3">3</button>
@@ -1579,36 +1581,36 @@ body {
           <button class="player-count-btn" data-count="5">5</button>
           <button class="player-count-btn" data-count="6">6</button>
         </div>
-        <label>Davon Mitspieler (lokal)</label>
+        <label>Local Players</label>
         <div class="player-buttons">
           <button class="human-count-btn active" data-humans="1">1 (Solo)</button>
           <button class="human-count-btn" data-humans="2">2</button>
           <button class="human-count-btn" data-humans="3">3</button>
           <button class="human-count-btn" data-humans="4">4</button>
         </div>
-        <label>Schwierigkeitsgrad (KI)</label>
+        <label>AI Difficulty</label>
         <div class="difficulty-buttons">
-          <button class="diff-btn" data-diff="easy">Leicht</button>
-          <button class="diff-btn active" data-diff="medium">Mittel</button>
-          <button class="diff-btn" data-diff="hard">Schwer</button>
-          <button class="diff-btn" data-diff="impossible">Unmöglich</button>
+          <button class="diff-btn" data-diff="easy">Easy</button>
+          <button class="diff-btn active" data-diff="medium">Medium</button>
+          <button class="diff-btn" data-diff="hard">Hard</button>
+          <button class="diff-btn" data-diff="impossible">Impossible</button>
         </div>
-        <button id="start-btn">Spiel starten</button>
+        <button id="start-btn">Start Game</button>
       </div>
       <div class="rules-summary">
-        <h3>Kurzregeln</h3>
+        <h3>Quick Rules</h3>
         <ul>
-          <li>Jeder hat 4 verdeckte Karten – nur die 2 äußeren darfst du anfangs ansehen</li>
-          <li>Ziel: Möglichst niedrige Kartenwerte sammeln</li>
-          <li>Pro Zug: Karte vom Stapel ziehen, tauschen oder ablegen</li>
-          <li>Sonderkarten: Spähen, Tauschen, Zweimal Ziehen</li>
-          <li>Verrückte Karten: Chaosbiber, Spion, Blitz, Tornado, Freeze, Spiegel, Dieb, Glückspilz</li>
-          <li>Klopfen = letzte Runde einläuten</li>
+          <li>Each player has 4 face-down cards – you may peek at the 2 outer ones at the start</li>
+          <li>Goal: Collect the lowest card values possible</li>
+          <li>Each turn: Draw a card from the pile, swap or discard it</li>
+          <li>Special cards: Peek, Swap, Draw Two</li>
+          <li>Crazy cards: Chaos Beaver, Spy, Lightning, Tornado, Freeze, Mirror, Thief, Lucky</li>
+          <li>Knock = trigger the final round</li>
         </ul>
       </div>
-      <button id="card-ref-start-btn" class="card-ref-trigger">📖 Kartenübersicht</button>
+      <button id="card-ref-start-btn" class="card-ref-trigger">📖 Card Reference</button>
       <div class="highscore-area">
-        <h3>🏆 Bestenliste</h3>
+        <h3>🏆 Leaderboard</h3>
         <div id="highscore-list"></div>
       </div>
     </div>
@@ -1619,10 +1621,10 @@ body {
 
     <!-- Header bar -->
     <div id="game-header">
-      <div id="round-info">Runde 1</div>
+      <div id="round-info">Round 1</div>
       <div id="score-board"></div>
-      <button id="card-ref-btn" class="header-icon-btn" title="Kartenübersicht (Taste: K)">📖</button>
-      <button id="admin-toggle" title="Admin Panel (Taste: A)">&#9881;</button>
+      <button id="card-ref-btn" class="header-icon-btn" title="Card Reference (Key: K)">📖</button>
+      <button id="admin-toggle" title="Admin Panel (Key: A)">&#9881;</button>
     </div>
 
     <!-- Admin Panel Sidebar -->
@@ -1646,34 +1648,34 @@ body {
           <div class="card card-back pile-card">
             <span class="pile-count"></span>
           </div>
-          <div class="pile-label">Nachziehstapel</div>
+          <div class="pile-label">Draw Pile</div>
         </div>
 
         <div id="drawn-card-area" class="hidden">
           <div class="drawn-card-wrapper">
             <div id="drawn-card" class="card"></div>
-            <div class="drawn-label">Gezogene Karte</div>
+            <div class="drawn-label">Drawn Card</div>
           </div>
         </div>
 
         <div id="discard-pile" class="pile">
           <div id="discard-top" class="card empty-pile">
-            <span>leer</span>
+            <span>empty</span>
           </div>
-          <div class="pile-label">Ablagestapel</div>
+          <div class="pile-label">Discard Pile</div>
         </div>
       </div>
 
       <!-- Message + Actions -->
       <div id="info-bar">
-        <div id="game-message">Willkommen bei Biberbande!</div>
+        <div id="game-message">Welcome to Beaver Gang!</div>
         <div id="action-buttons"></div>
       </div>
 
       <!-- Human player area -->
       <div id="human-player">
         <div class="player-banner human-banner">
-          <span class="player-name">Du</span>
+          <span class="player-name">You</span>
           <span class="player-round-score"></span>
         </div>
         <div id="human-cards" class="player-cards"></div>
@@ -1685,56 +1687,56 @@ body {
   <!-- ==================== ROUND END OVERLAY ==================== -->
   <div id="round-overlay" class="overlay hidden">
     <div class="overlay-content">
-      <h2 id="round-end-title">Rundenende</h2>
+      <h2 id="round-end-title">Round Over</h2>
       <div id="round-results"></div>
-      <button id="next-round-btn">Nächste Runde</button>
+      <button id="next-round-btn">Next Round</button>
     </div>
   </div>
 
   <!-- ==================== GAME OVER OVERLAY ==================== -->
   <div id="gameover-overlay" class="overlay hidden">
     <div class="overlay-content">
-      <h2>Spielende</h2>
+      <h2>Game Over</h2>
       <div id="final-results"></div>
-      <button id="new-game-btn">Neues Spiel</button>
+      <button id="new-game-btn">New Game</button>
     </div>
   </div>
 
   <!-- ==================== PEEK OVERLAY ==================== -->
   <div id="peek-overlay" class="overlay hidden">
     <div class="overlay-content peek-content">
-      <h2>Karte angesehen</h2>
+      <h2>Card Peeked</h2>
       <div id="peek-card-display"></div>
       <p id="peek-message"></p>
-      <button id="peek-close-btn">Verstanden</button>
+      <button id="peek-close-btn">Got it</button>
     </div>
   </div>
 
   <!-- ==================== PASS DEVICE OVERLAY ==================== -->
   <div id="pass-device-overlay" class="overlay hidden">
     <div class="overlay-content pass-device-content">
-      <h2 id="pass-device-title">Weitergeben!</h2>
-      <p id="pass-device-message">Gib das Gerät weiter.</p>
-      <button id="pass-device-btn" class="pass-device-ready-btn">Ich bin bereit!</button>
+      <h2 id="pass-device-title">Pass the device!</h2>
+      <p id="pass-device-message">Hand over the device.</p>
+      <button id="pass-device-btn" class="pass-device-ready-btn">I'm ready!</button>
     </div>
   </div>
 
   <!-- ==================== CARD REFERENCE OVERLAY ==================== -->
   <div id="card-ref-overlay" class="overlay hidden">
     <div class="overlay-content card-ref-content">
-      <h2>📖 Kartenübersicht</h2>
+      <h2>📖 Card Reference</h2>
       <div id="card-ref-grid"></div>
-      <button id="card-ref-close">Schließen</button>
+      <button id="card-ref-close">Close</button>
     </div>
   </div>
 
   <script>
 // ============================================================
-//  BIBERBANDE – Digital Prototype
+//  BEAVER GANG – Digital Prototype
 // ============================================================
 
-const AI_NAMES = ['Berta Biber', 'Bruno Biber', 'Bella Biber', 'Boris Biber', 'Benni Biber'];
-const HUMAN_NAMES = ['Spieler 1', 'Spieler 2', 'Spieler 3', 'Spieler 4', 'Spieler 5', 'Spieler 6'];
+const AI_NAMES = ['Berta Beaver', 'Bruno Beaver', 'Bella Beaver', 'Boris Beaver', 'Benni Beaver'];
+const HUMAN_NAMES = ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6'];
 const PEEK_DURATION = 2000;
 
 const DIFF_CONFIG = {
@@ -1743,18 +1745,19 @@ const DIFF_CONFIG = {
   hard:       { aiDelay: 900,  discardMax: 4, swapDrawnMax: 5, swapCardMin: 5, knockMax: 10, blunderChance: 0,   peekUseChance: 1.0 },
   impossible: { aiDelay: 600,  discardMax: 5, swapDrawnMax: 6, swapCardMin: 4, knockMax: 14, blunderChance: 0,   peekUseChance: 1.0 },
 };
+
 // ── Card helpers ────────────────────────────────────────────
 function createDeck() {
   const deck = [];
   let id = 0;
-  // Überbiber: value -999 (1 card) – the legendary card
+  // Ultra Beaver: value -999 (1 card) – the legendary card
   deck.push({ id: id++, type: 'number', value: -999 });
-  // Goldbiber: value -3 (1 card)
+  // Gold Beaver: value -3 (1 card)
   deck.push({ id: id++, type: 'number', value: -3 });
-  // Eisbiber: value -2 (2 cards)
+  // Ice Beaver: value -2 (2 cards)
   for (let i = 0; i < 2; i++)
     deck.push({ id: id++, type: 'number', value: -2 });
-  // Null-Biber: value -1 (4 cards)
+  // Zero Beaver: value -1 (4 cards)
   for (let i = 0; i < 4; i++)
     deck.push({ id: id++, type: 'number', value: -1 });
   for (let v = 0; v <= 8; v++)
@@ -1762,7 +1765,7 @@ function createDeck() {
       deck.push({ id: id++, type: 'number', value: v });
   for (let i = 0; i < 9; i++)
     deck.push({ id: id++, type: 'number', value: 9 });
-  // Fluchbiber: value 999 (1 card) – the cursed card
+  // Curse Beaver: value 999 (1 card) – the cursed card
   deck.push({ id: id++, type: 'number', value: 999 });
   for (let i = 0; i < 7; i++)
     deck.push({ id: id++, type: 'peek', value: null });
@@ -1801,17 +1804,17 @@ function cardDisplayName(card) {
   if (card.type === 'number' && card.value === -999) return '−∞';
   if (card.type === 'number' && card.value === 999) return '+∞';
   if (card.type === 'number') return String(card.value);
-  if (card.type === 'peek') return 'Spähen';
-  if (card.type === 'swap') return 'Tausch';
-  if (card.type === 'draw_two') return '2× Ziehen';
-  if (card.type === 'chaos') return 'Chaosbiber';
-  if (card.type === 'spion') return 'Spion';
-  if (card.type === 'blitz') return 'Blitz';
+  if (card.type === 'peek') return 'Peek';
+  if (card.type === 'swap') return 'Swap';
+  if (card.type === 'draw_two') return 'Draw Two';
+  if (card.type === 'chaos') return 'Chaos Beaver';
+  if (card.type === 'spion') return 'Spy';
+  if (card.type === 'blitz') return 'Lightning';
   if (card.type === 'tornado') return 'Tornado';
   if (card.type === 'freeze') return 'Freeze';
-  if (card.type === 'spiegel') return 'Spiegel';
-  if (card.type === 'dieb') return 'Dieb';
-  if (card.type === 'glueckspilz') return 'Glückspilz';
+  if (card.type === 'spiegel') return 'Mirror';
+  if (card.type === 'dieb') return 'Thief';
+  if (card.type === 'glueckspilz') return 'Lucky';
   return '?';
 }
 
@@ -1857,7 +1860,7 @@ function newGame(numPlayers, difficulty, numHumans) {
 
   for (let i = 0; i < numHumans; i++) {
     G.players.push({
-      name: numHumans === 1 ? 'Du' : HUMAN_NAMES[i],
+      name: numHumans === 1 ? 'You' : HUMAN_NAMES[i],
       isHuman: true,
       cards: [],
       known: [false, false, false, false],
@@ -1870,7 +1873,7 @@ function newGame(numPlayers, difficulty, numHumans) {
   let aiIdx = 0;
   for (let i = numHumans; i < numPlayers; i++) {
     G.players.push({
-      name: AI_NAMES[aiIdx++] || `KI ${aiIdx}`,
+      name: AI_NAMES[aiIdx++] || `AI ${aiIdx}`,
       isHuman: false,
       cards: [],
       known: [false, false, false, false],
@@ -1920,14 +1923,14 @@ function startRound() {
   if (G.numHumans > 1) {
     G.initialPeekPlayer = 0;
     G.currentPlayer = 0;
-    showPassDevice(G.players[me()].name, 'Schau dir deine 2 äußeren Karten an!', () => {
+    showPassDevice(G.players[me()].name, 'Look at your 2 outer cards!', () => {
       render();
-      setMessage(`${G.players[me()].name}: Schau dir deine beiden äußeren Karten an! Klicke auf Karte 1 und Karte 4.`);
+      setMessage(`${G.players[me()].name}: Look at your two outer cards! Click on Card 1 and Card 4.`);
       setActions([]);
     });
   } else {
     render();
-    setMessage('Schau dir deine beiden äußeren Karten an! Klicke auf Karte 1 und Karte 4.');
+    setMessage('Look at your two outer cards! Click on Card 1 and Card 4.');
     setActions([]);
   }
 }
@@ -1973,8 +1976,8 @@ function isOpponent(i) {
 
 function showPassDevice(playerName, info, callback) {
   const overlay = document.getElementById('pass-device-overlay');
-  document.getElementById('pass-device-title').textContent = `📱 ${playerName} ist dran!`;
-  document.getElementById('pass-device-message').textContent = info || 'Gib das Gerät weiter.';
+  document.getElementById('pass-device-title').textContent = `📱 ${playerName}'s turn!`;
+  document.getElementById('pass-device-message').textContent = info || 'Pass the device.';
   overlay.classList.remove('hidden');
   const btn = document.getElementById('pass-device-btn');
   btn.onclick = () => {
@@ -1998,7 +2001,7 @@ function onHumanCardClick(slotIdx) {
     else G.humanPeekedSlots = peeked;
     human.known[slotIdx] = true;
 
-    showPeekOverlay(human.cards[slotIdx], `Karte ${slotIdx + 1}`);
+    showPeekOverlay(human.cards[slotIdx], `Card ${slotIdx + 1}`);
 
     if (peeked.length >= 2) {
       G.initialPeekDone = true;
@@ -2019,7 +2022,7 @@ function onHumanCardClick(slotIdx) {
   if (G.phase === 'drawn' && G.drawnCard && G.drawnCard.type === 'swap') {
     G.selectedOwnSlot = slotIdx;
     G.phase = 'select_target';
-    setMessage('Wähle jetzt eine Karte eines Mitspielers zum Tauschen.');
+    setMessage('Now choose a card from another player to swap.');
     highlightOpponentCards(true);
     render();
     return;
@@ -2038,7 +2041,7 @@ function onHumanCardClick(slotIdx) {
     } else if (G.drawnCard && G.drawnCard.type === 'swap') {
       G.selectedOwnSlot = slotIdx;
       G.phase = G.phase === 'draw_two_1' ? 'dt1_select_target' : 'dt2_select_target';
-      setMessage('Wähle eine Karte eines Mitspielers zum Tauschen.');
+      setMessage('Choose a card from another player to swap.');
       highlightOpponentCards(true);
       render();
     }
@@ -2047,9 +2050,9 @@ function onHumanCardClick(slotIdx) {
 
   if (G.phase === 'spiegel_1') {
     human.known[slotIdx] = true;
-    showPeekOverlay(human.cards[slotIdx], `Karte ${slotIdx + 1}`, () => {
+    showPeekOverlay(human.cards[slotIdx], `Card ${slotIdx + 1}`, () => {
       G.phase = 'spiegel_2';
-      setMessage('🪞 Spiegel: Wähle deine zweite Karte zum Ansehen.');
+      setMessage('🪞 Mirror: Choose your second card to peek at.');
       render();
     });
     return;
@@ -2057,7 +2060,7 @@ function onHumanCardClick(slotIdx) {
 
   if (G.phase === 'spiegel_2') {
     human.known[slotIdx] = true;
-    showPeekOverlay(human.cards[slotIdx], `Karte ${slotIdx + 1}`, () => {
+    showPeekOverlay(human.cards[slotIdx], `Card ${slotIdx + 1}`, () => {
       if (G.drawTwoPhase === 1) { startDrawTwoSecond(); return; }
       finishHumanTurn();
     });
@@ -2101,16 +2104,16 @@ function onOpponentCardClick(playerIdx, slotIdx) {
   if (G.phase === 'dieb_select') {
     const card = G.players[playerIdx].cards[slotIdx];
     G._diebTarget = { player: playerIdx, slot: slotIdx };
-    showPeekOverlay(card, `${G.players[playerIdx].name} – Karte ${slotIdx + 1}`, () => {
-      setMessage(`${cardDisplayName(card)} gesehen! Stehlen oder nur ansehen?`);
+    showPeekOverlay(card, `${G.players[playerIdx].name} – Card ${slotIdx + 1}`, () => {
+      setMessage(`Seen ${cardDisplayName(card)}! Steal it or just peek?`);
       setActions([
-        { label: '🦝 Stehlen!', class: 'danger', action: () => {
+        { label: '🦝 Steal!', class: 'danger', action: () => {
           G.phase = 'dieb_swap';
-          setMessage('Wähle deine Karte, die du abgeben willst.');
+          setMessage('Choose your card to give away.');
           setActions([]);
           render();
         }},
-        { label: 'Nur ansehen', class: 'secondary', action: () => {
+        { label: 'Just peek', class: 'secondary', action: () => {
           G._diebTarget = null;
           if (G.drawTwoPhase === 1) { startDrawTwoSecond(); return; }
           finishHumanTurn();
@@ -2132,87 +2135,87 @@ function onDrawPileClick() {
 
     if (card.type === 'number') {
       G.phase = 'drawn';
-      setMessage(`Du hast eine ${card.value} gezogen. Tausche sie mit einer deiner Karten oder lege sie ab.`);
+      setMessage(`You drew a ${card.value}. Swap it with one of your cards or discard it.`);
       setActions([
-        { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+        { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
       ]);
       highlightHumanCards(true);
     } else if (card.type === 'peek') {
       G.phase = 'drawn';
-      setMessage('Spähen-Karte! Klicke auf eine deiner Karten, um sie anzusehen. Oder lege die Karte ab.');
+      setMessage('Peek card! Click one of your cards to look at it. Or discard.');
       setActions([
-        { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+        { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
       ]);
       highlightHumanCards(true);
     } else if (card.type === 'swap') {
       G.phase = 'drawn';
-      setMessage('Tausch-Karte! Wähle eine deiner Karten, dann eine Karte eines Mitspielers. Oder lege ab.');
+      setMessage('Swap card! Choose one of your cards, then an opponent\'s card. Or discard.');
       setActions([
-        { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+        { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
       ]);
       highlightHumanCards(true);
     } else if (card.type === 'draw_two') {
       G.phase = 'drawn';
-      setMessage('2× Ziehen! Du ziehst gleich zwei Karten vom Stapel.');
+      setMessage('Draw Two! You will draw two cards from the pile.');
       setActions([
-        { label: 'Aktion ausführen', class: 'primary', action: () => humanDrawTwo() },
-        { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+        { label: 'Use action', class: 'primary', action: () => humanDrawTwo() },
+        { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
       ]);
     } else if (card.type === 'chaos') {
       G.phase = 'drawn';
-      setMessage('🌀 Chaosbiber! Eine zufällige Karte jedes Spielers wird wild durchgemischt!');
+      setMessage('🌀 Chaos Beaver! A random card from each player gets shuffled wildly!');
       setActions([
-        { label: 'Chaos auslösen!', class: 'danger', action: () => humanExecuteChaos() },
-        { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+        { label: 'Unleash chaos!', class: 'danger', action: () => humanExecuteChaos() },
+        { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
       ]);
     } else if (card.type === 'spion') {
       G.phase = 'drawn';
-      setMessage('🕵️ Spion! Schau dir eine Karte eines Mitspielers an.');
+      setMessage('🕵️ Spy! Look at one of another player\'s cards.');
       setActions([
-        { label: 'Spionieren', class: 'primary', action: () => humanStartSpion() },
-        { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+        { label: 'Spy', class: 'primary', action: () => humanStartSpion() },
+        { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
       ]);
     } else if (card.type === 'blitz') {
       G.phase = 'drawn';
-      setMessage('⚡ Blitz! Alle Spieler schieben ihre erste Karte nach links weiter!');
+      setMessage('⚡ Lightning! All players pass their first card to the left!');
       setActions([
-        { label: 'Blitz auslösen!', class: 'danger', action: () => humanExecuteBlitz() },
-        { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+        { label: 'Unleash lightning!', class: 'danger', action: () => humanExecuteBlitz() },
+        { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
       ]);
     } else if (card.type === 'tornado') {
       G.phase = 'drawn';
-      setMessage('🌪️ Tornado! ALLE Karten aller Spieler werden komplett neu verteilt!');
+      setMessage('🌪️ Tornado! ALL cards of all players get completely redistributed!');
       setActions([
-        { label: 'Tornado auslösen!', class: 'danger', action: () => humanExecuteTornado() },
-        { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+        { label: 'Unleash tornado!', class: 'danger', action: () => humanExecuteTornado() },
+        { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
       ]);
     } else if (card.type === 'freeze') {
       G.phase = 'drawn';
-      setMessage('❄️ Freeze! Der nächste Spieler wird übersprungen!');
+      setMessage('❄️ Freeze! The next player will be skipped!');
       setActions([
-        { label: 'Einfrieren!', class: 'primary', action: () => humanExecuteFreeze() },
-        { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+        { label: 'Freeze!', class: 'primary', action: () => humanExecuteFreeze() },
+        { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
       ]);
     } else if (card.type === 'spiegel') {
       G.phase = 'drawn';
-      setMessage('🪞 Spiegel! Du darfst 2 deiner Karten ansehen!');
+      setMessage('🪞 Mirror! You may peek at 2 of your cards!');
       setActions([
-        { label: 'Spiegeln!', class: 'primary', action: () => humanStartSpiegel() },
-        { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+        { label: 'Mirror!', class: 'primary', action: () => humanStartSpiegel() },
+        { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
       ]);
     } else if (card.type === 'dieb') {
       G.phase = 'drawn';
-      setMessage('🦝 Dieb! Schau dir eine Karte eines Gegners an und stiehl sie optional!');
+      setMessage('🦝 Thief! Peek at an opponent\'s card and optionally steal it!');
       setActions([
-        { label: 'Stehlen gehen!', class: 'danger', action: () => humanStartDieb() },
-        { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+        { label: 'Go steal!', class: 'danger', action: () => humanStartDieb() },
+        { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
       ]);
     } else if (card.type === 'glueckspilz') {
       G.phase = 'drawn';
-      setMessage('🍀 Glückspilz! Ziehe 3 Karten und behalte die beste!');
+      setMessage('🍀 Lucky! Draw 3 cards and keep the best one!');
       setActions([
-        { label: 'Glück versuchen!', class: 'primary', action: () => humanStartGlueckspilz() },
-        { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+        { label: 'Try your luck!', class: 'primary', action: () => humanStartGlueckspilz() },
+        { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
       ]);
     }
 
@@ -2231,7 +2234,7 @@ function onDiscardPileClick() {
   G.drawnCard = G.discardPile.pop();
   G.drawnFrom = 'discard';
   G.phase = 'discard_swap';
-  setMessage(`Du nimmst die ${G.drawnCard.value} vom Ablagestapel. Tausche sie mit einer deiner Karten.`);
+  setMessage(`You take the ${G.drawnCard.value} from the discard pile. Swap it with one of your cards.`);
   setActions([]);
   highlightHumanCards(true);
   render();
@@ -2273,92 +2276,92 @@ function startDrawTwoSecond() {
 }
 
 function showDrawTwoCard(card, mustUse) {
-  const label = mustUse ? 'Zweite Karte (muss genutzt werden)' : 'Erste Karte';
+  const label = mustUse ? 'Second card (must be used)' : 'First card';
 
   if (card.type === 'number') {
-    setMessage(`${label}: ${card.value}. ${mustUse ? 'Du musst sie mit einer Karte tauschen.' : 'Tausche oder lege ab.'}`);
-    const actions = mustUse ? [] : [{ label: 'Ablegen', class: 'secondary', action: () => humanDiscard() }];
+    setMessage(`${label}: ${card.value}. ${mustUse ? 'You must swap it with a card.' : 'Swap or discard.'}`);
+    const actions = mustUse ? [] : [{ label: 'Discard', class: 'secondary', action: () => humanDiscard() }];
     setActions(actions);
     highlightHumanCards(true);
   } else if (card.type === 'peek') {
-    setMessage(`${label}: Spähen! Klicke auf eine deiner Karten.${mustUse ? '' : ' Oder lege ab.'}`);
-    const actions = mustUse ? [] : [{ label: 'Ablegen', class: 'secondary', action: () => humanDiscard() }];
+    setMessage(`${label}: Peek! Click one of your cards.${mustUse ? '' : ' Or discard.'}`);
+    const actions = mustUse ? [] : [{ label: 'Discard', class: 'secondary', action: () => humanDiscard() }];
     setActions(actions);
     highlightHumanCards(true);
   } else if (card.type === 'swap') {
-    setMessage(`${label}: Tausch! Wähle deine Karte, dann eine des Gegners.${mustUse ? '' : ' Oder lege ab.'}`);
-    const actions = mustUse ? [] : [{ label: 'Ablegen', class: 'secondary', action: () => humanDiscard() }];
+    setMessage(`${label}: Swap! Choose your card, then an opponent's.${mustUse ? '' : ' Or discard.'}`);
+    const actions = mustUse ? [] : [{ label: 'Discard', class: 'secondary', action: () => humanDiscard() }];
     setActions(actions);
     highlightHumanCards(true);
   } else if (card.type === 'draw_two') {
     if (mustUse) {
-      setMessage(`${label}: Nochmal 2× Ziehen! Wird als einfaches Ziehen ausgeführt.`);
+      setMessage(`${label}: Draw Two again! Executed as a single draw.`);
       discardCard(card);
       const extra = drawCard();
       G.drawnCard = extra;
       showDrawTwoCard(extra, true);
       return;
     }
-    setMessage(`${label}: 2× Ziehen. Lege ab oder führe die Aktion aus.`);
+    setMessage(`${label}: Draw Two. Discard or use the action.`);
     setActions([
-      { label: 'Aktion ausführen', class: 'primary', action: () => { discardCard(card); G.drawnCard = null; humanDrawTwo(); } },
-      { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() },
+      { label: 'Use action', class: 'primary', action: () => { discardCard(card); G.drawnCard = null; humanDrawTwo(); } },
+      { label: 'Discard', class: 'secondary', action: () => humanDiscard() },
     ]);
   } else if (card.type === 'chaos') {
-    setMessage(`${label}: 🌀 Chaosbiber!${mustUse ? ' Muss gespielt werden!' : ''}`);
+    setMessage(`${label}: 🌀 Chaos Beaver!${mustUse ? ' Must be played!' : ''}`);
     const actions = mustUse
-      ? [{ label: 'Chaos auslösen!', class: 'danger', action: () => humanExecuteChaos() }]
-      : [{ label: 'Chaos auslösen!', class: 'danger', action: () => humanExecuteChaos() },
-         { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() }];
+      ? [{ label: 'Unleash chaos!', class: 'danger', action: () => humanExecuteChaos() }]
+      : [{ label: 'Unleash chaos!', class: 'danger', action: () => humanExecuteChaos() },
+         { label: 'Discard', class: 'secondary', action: () => humanDiscard() }];
     setActions(actions);
   } else if (card.type === 'spion') {
-    setMessage(`${label}: 🕵️ Spion!${mustUse ? ' Muss gespielt werden!' : ''}`);
+    setMessage(`${label}: 🕵️ Spy!${mustUse ? ' Must be played!' : ''}`);
     const actions = mustUse
-      ? [{ label: 'Spionieren', class: 'primary', action: () => humanStartSpion() }]
-      : [{ label: 'Spionieren', class: 'primary', action: () => humanStartSpion() },
-         { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() }];
+      ? [{ label: 'Spy', class: 'primary', action: () => humanStartSpion() }]
+      : [{ label: 'Spy', class: 'primary', action: () => humanStartSpion() },
+         { label: 'Discard', class: 'secondary', action: () => humanDiscard() }];
     setActions(actions);
   } else if (card.type === 'blitz') {
-    setMessage(`${label}: ⚡ Blitz!${mustUse ? ' Muss gespielt werden!' : ''}`);
+    setMessage(`${label}: ⚡ Lightning!${mustUse ? ' Must be played!' : ''}`);
     const actions = mustUse
-      ? [{ label: 'Blitz auslösen!', class: 'danger', action: () => humanExecuteBlitz() }]
-      : [{ label: 'Blitz auslösen!', class: 'danger', action: () => humanExecuteBlitz() },
-         { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() }];
+      ? [{ label: 'Unleash lightning!', class: 'danger', action: () => humanExecuteBlitz() }]
+      : [{ label: 'Unleash lightning!', class: 'danger', action: () => humanExecuteBlitz() },
+         { label: 'Discard', class: 'secondary', action: () => humanDiscard() }];
     setActions(actions);
   } else if (card.type === 'tornado') {
-    setMessage(`${label}: 🌪️ Tornado!${mustUse ? ' Muss gespielt werden!' : ''}`);
+    setMessage(`${label}: 🌪️ Tornado!${mustUse ? ' Must be played!' : ''}`);
     const actions = mustUse
       ? [{ label: 'Tornado!', class: 'danger', action: () => humanExecuteTornado() }]
       : [{ label: 'Tornado!', class: 'danger', action: () => humanExecuteTornado() },
-         { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() }];
+         { label: 'Discard', class: 'secondary', action: () => humanDiscard() }];
     setActions(actions);
   } else if (card.type === 'freeze') {
-    setMessage(`${label}: ❄️ Freeze!${mustUse ? ' Muss gespielt werden!' : ''}`);
+    setMessage(`${label}: ❄️ Freeze!${mustUse ? ' Must be played!' : ''}`);
     const actions = mustUse
-      ? [{ label: 'Einfrieren!', class: 'primary', action: () => humanExecuteFreeze() }]
-      : [{ label: 'Einfrieren!', class: 'primary', action: () => humanExecuteFreeze() },
-         { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() }];
+      ? [{ label: 'Freeze!', class: 'primary', action: () => humanExecuteFreeze() }]
+      : [{ label: 'Freeze!', class: 'primary', action: () => humanExecuteFreeze() },
+         { label: 'Discard', class: 'secondary', action: () => humanDiscard() }];
     setActions(actions);
   } else if (card.type === 'spiegel') {
-    setMessage(`${label}: 🪞 Spiegel!${mustUse ? ' Muss gespielt werden!' : ''}`);
+    setMessage(`${label}: 🪞 Mirror!${mustUse ? ' Must be played!' : ''}`);
     const actions = mustUse
-      ? [{ label: 'Spiegeln!', class: 'primary', action: () => humanStartSpiegel() }]
-      : [{ label: 'Spiegeln!', class: 'primary', action: () => humanStartSpiegel() },
-         { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() }];
+      ? [{ label: 'Mirror!', class: 'primary', action: () => humanStartSpiegel() }]
+      : [{ label: 'Mirror!', class: 'primary', action: () => humanStartSpiegel() },
+         { label: 'Discard', class: 'secondary', action: () => humanDiscard() }];
     setActions(actions);
   } else if (card.type === 'dieb') {
-    setMessage(`${label}: 🦝 Dieb!${mustUse ? ' Muss gespielt werden!' : ''}`);
+    setMessage(`${label}: 🦝 Thief!${mustUse ? ' Must be played!' : ''}`);
     const actions = mustUse
-      ? [{ label: 'Stehlen!', class: 'danger', action: () => humanStartDieb() }]
-      : [{ label: 'Stehlen!', class: 'danger', action: () => humanStartDieb() },
-         { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() }];
+      ? [{ label: 'Steal!', class: 'danger', action: () => humanStartDieb() }]
+      : [{ label: 'Steal!', class: 'danger', action: () => humanStartDieb() },
+         { label: 'Discard', class: 'secondary', action: () => humanDiscard() }];
     setActions(actions);
   } else if (card.type === 'glueckspilz') {
-    setMessage(`${label}: 🍀 Glückspilz!${mustUse ? ' Muss gespielt werden!' : ''}`);
+    setMessage(`${label}: 🍀 Lucky!${mustUse ? ' Must be played!' : ''}`);
     const actions = mustUse
-      ? [{ label: 'Glück!', class: 'primary', action: () => humanStartGlueckspilz() }]
-      : [{ label: 'Glück!', class: 'primary', action: () => humanStartGlueckspilz() },
-         { label: 'Ablegen', class: 'secondary', action: () => humanDiscard() }];
+      ? [{ label: 'Lucky!', class: 'primary', action: () => humanStartGlueckspilz() }]
+      : [{ label: 'Lucky!', class: 'primary', action: () => humanStartGlueckspilz() },
+         { label: 'Discard', class: 'secondary', action: () => humanDiscard() }];
     setActions(actions);
   }
 
@@ -2401,7 +2404,7 @@ function performPeek(playerIdx, slotIdx) {
   highlightHumanCards(false);
 
   if (player.isHuman) {
-    showPeekOverlay(card, `Karte ${slotIdx + 1}`, () => {
+    showPeekOverlay(card, `Card ${slotIdx + 1}`, () => {
       if (G.phase === 'draw_two_1') {
         startDrawTwoSecond();
         return;
@@ -2493,7 +2496,7 @@ function humanExecuteChaos() {
   discardCard(G.drawnCard);
   G.drawnCard = null;
   executeChaosbiber();
-  setMessage('🌀 Chaos! Die Karten wurden wild durchgemischt!');
+  setMessage('🌀 Chaos! The cards have been wildly shuffled!');
   setActions([]);
   render();
   if (G.phase === 'draw_two_1') { setTimeout(() => startDrawTwoSecond(), 1200); return; }
@@ -2504,7 +2507,7 @@ function humanExecuteBlitz() {
   discardCard(G.drawnCard);
   G.drawnCard = null;
   executeBlitz();
-  setMessage('⚡ Blitz! Alle ersten Karten wurden nach links geschoben!');
+  setMessage('⚡ Lightning! All first cards have been shifted left!');
   setActions([]);
   render();
   if (G.phase === 'draw_two_1') { setTimeout(() => startDrawTwoSecond(), 1200); return; }
@@ -2515,7 +2518,7 @@ function humanStartSpion() {
   discardCard(G.drawnCard);
   G.drawnCard = null;
   G.phase = 'spion_select';
-  setMessage('🕵️ Wähle eine Karte eines Mitspielers zum Ansehen.');
+  setMessage('🕵️ Choose a card from another player to peek at.');
   setActions([]);
   render();
 }
@@ -2523,7 +2526,7 @@ function humanStartSpion() {
 function executeSpionPeek(playerIdx, slotIdx) {
   const card = G.players[playerIdx].cards[slotIdx];
   G.phase = 'drawn'; // temp phase so overlay works
-  showPeekOverlay(card, `${G.players[playerIdx].name} – Karte ${slotIdx + 1}`, () => {
+  showPeekOverlay(card, `${G.players[playerIdx].name} – Card ${slotIdx + 1}`, () => {
     if (G.drawTwoPhase === 1) {
       G.phase = 'draw_two_1';
       startDrawTwoSecond();
@@ -2554,7 +2557,7 @@ function humanExecuteTornado() {
   discardCard(G.drawnCard);
   G.drawnCard = null;
   executeTornado();
-  setMessage('🌪️ Tornado! Alle Karten wurden wild neu verteilt!');
+  setMessage('🌪️ Tornado! All cards have been wildly redistributed!');
   setActions([]);
   render();
   if (G.phase === 'draw_two_1') { setTimeout(() => startDrawTwoSecond(), 1200); return; }
@@ -2565,7 +2568,7 @@ function humanExecuteFreeze() {
   discardCard(G.drawnCard);
   G.drawnCard = null;
   G.skipNextPlayer = true;
-  setMessage('❄️ Freeze! Der nächste Spieler wird übersprungen!');
+  setMessage('❄️ Freeze! The next player will be skipped!');
   setActions([]);
   render();
   if (G.phase === 'draw_two_1') { setTimeout(() => startDrawTwoSecond(), 1200); return; }
@@ -2576,7 +2579,7 @@ function humanStartSpiegel() {
   discardCard(G.drawnCard);
   G.drawnCard = null;
   G.phase = 'spiegel_1';
-  setMessage('🪞 Spiegel: Wähle deine erste Karte zum Ansehen.');
+  setMessage('🪞 Mirror: Choose your first card to peek at.');
   setActions([]);
   render();
 }
@@ -2585,7 +2588,7 @@ function humanStartDieb() {
   discardCard(G.drawnCard);
   G.drawnCard = null;
   G.phase = 'dieb_select';
-  setMessage('🦝 Dieb: Wähle eine Karte eines Gegners zum Ansehen.');
+  setMessage('🦝 Thief: Choose an opponent\'s card to peek at.');
   setActions([]);
   render();
 }
@@ -2599,7 +2602,7 @@ function humanStartGlueckspilz() {
   G.phase = 'lucky_pick';
 
   render();
-  setMessage('🍀 Glückspilz! Wähle eine der 3 Karten:');
+  setMessage('🍀 Lucky! Choose one of 3 cards:');
 
   const container = document.getElementById('action-buttons');
   container.innerHTML = '';
@@ -2607,14 +2610,14 @@ function humanStartGlueckspilz() {
     const btn = document.createElement('button');
     btn.className = 'action-btn lucky-card-btn';
     const name = cardDisplayName(card);
-    btn.textContent = card.type === 'number' ? `${name} Punkte` : name;
+    btn.textContent = card.type === 'number' ? `${name} points` : name;
     btn.addEventListener('click', () => pickLuckyCard(i));
     container.appendChild(btn);
   });
 
   const discardBtn = document.createElement('button');
   discardBtn.className = 'action-btn secondary';
-  discardBtn.textContent = 'Alle ablegen';
+  discardBtn.textContent = 'Discard all';
   discardBtn.addEventListener('click', () => {
     G._luckyCards.forEach(c => discardCard(c));
     G._luckyCards = null;
@@ -2633,8 +2636,8 @@ function pickLuckyCard(idx) {
   if (card.type === 'number') {
     G.drawnCard = card;
     G.phase = 'lucky_swap';
-    setMessage(`Du hast ${card.value} gewählt! Tausche mit einer deiner Karten oder lege ab.`);
-    setActions([{ label: 'Ablegen', class: 'secondary', action: () => {
+    setMessage(`You chose ${card.value}! Swap with one of your cards or discard.`);
+    setActions([{ label: 'Discard', class: 'secondary', action: () => {
       discardCard(G.drawnCard);
       G.drawnCard = null;
       if (G.drawTwoPhase === 1) { startDrawTwoSecond(); return; }
@@ -2660,10 +2663,10 @@ function finishHumanTurn() {
   }
 
   G.phase = 'knock_check';
-  setMessage('Möchtest du klopfen und die letzte Runde einläuten?');
+  setMessage('Do you want to knock and start the final round?');
   setActions([
-    { label: 'Klopfen!', class: 'knock', action: () => humanKnock() },
-    { label: 'Weiter', class: 'secondary', action: () => advanceTurn() },
+    { label: 'Knock!', class: 'knock', action: () => humanKnock() },
+    { label: 'Continue', class: 'secondary', action: () => advanceTurn() },
   ]);
   render();
 }
@@ -2671,8 +2674,8 @@ function finishHumanTurn() {
 function humanKnock() {
   G.knockedBy = G.currentPlayer;
   G.lastRoundTurnsLeft = G.numPlayers - 1;
-  const name = G.numHumans > 1 ? G.players[G.currentPlayer].name : 'Du';
-  setMessage(`${name} hat geklopft! Letzte Runde!`);
+  const name = G.numHumans > 1 ? G.players[G.currentPlayer].name : 'You';
+  setMessage(`${name} knocked! Final round!`);
   setActions([]);
   render();
   setTimeout(() => advanceTurn(), G.diffCfg.aiDelay);
@@ -2696,7 +2699,7 @@ function advanceTurn() {
   if (G.skipNextPlayer) {
     G.skipNextPlayer = false;
     const skippedName = G.players[G.currentPlayer].name;
-    setMessage(`${skippedName} ist eingefroren! ❄️`);
+    setMessage(`${skippedName} is frozen! ❄️`);
     render();
     if (G.knockedBy >= 0) {
       G.lastRoundTurnsLeft--;
@@ -2742,9 +2745,9 @@ function startHumanTurn() {
   const name = G.numHumans > 1 ? p.name + ': ' : '';
 
   if (G.numHumans > 1 && !G._skipPassDevice) {
-    showPassDevice(p.name, 'Du bist dran!', () => {
+    showPassDevice(p.name, 'It\'s your turn!', () => {
       const discardOK = topDiscard() && topDiscard().type === 'number';
-      setMessage(`${name}Ziehe eine Karte vom Nachzieh- oder Ablagestapel.`);
+      setMessage(`${name}Draw a card from the draw pile or discard pile.`);
       setActions([]);
       render();
     });
@@ -2753,14 +2756,14 @@ function startHumanTurn() {
   G._skipPassDevice = false;
 
   const discardOK = topDiscard() && topDiscard().type === 'number';
-  setMessage(`${name}Ziehe eine Karte vom Nachzieh- oder Ablagestapel.`);
+  setMessage(`${name}Draw a card from the draw pile or discard pile.`);
   setActions([]);
   render();
 }
 
 async function autoPlayHumanTurn() {
   const human = G.players[G.currentPlayer];
-  setMessage(`🤖 Auto-Play: ${human.name} denkt nach…`);
+  setMessage(`🤖 Auto-Play: ${human.name} is thinking…`);
   showAIThinking(true);
   render();
   await delay(G.diffCfg.aiDelay);
@@ -2814,7 +2817,7 @@ async function autoPlayHumanTurn() {
   if (knownCount === 4 && knownSum <= 6) {
     G.knockedBy = G.currentPlayer;
     G.lastRoundTurnsLeft = G.numPlayers - 1;
-    setMessage('🤖 Auto-Play: Du klopfst!');
+    setMessage('🤖 Auto-Play: You knock!');
     render();
     await delay(G.diffCfg.aiDelay);
   }
@@ -2849,15 +2852,15 @@ function onPeekClose() {
           G.initialPeekPlayer = nextPeekPlayer;
           G.initialPeekDone = false;
           G.currentPlayer = nextPeekPlayer;
-          showPassDevice(G.players[nextPeekPlayer].name, 'Schau dir deine 2 äußeren Karten an!', () => {
+          showPassDevice(G.players[nextPeekPlayer].name, 'Look at your 2 outer cards!', () => {
             render();
-            setMessage(`${G.players[nextPeekPlayer].name}: Schau dir deine beiden äußeren Karten an!`);
+            setMessage(`${G.players[nextPeekPlayer].name}: Look at your two outer cards!`);
             setActions([]);
           });
         } else {
           G.currentPlayer = 0;
           G.phase = 'draw';
-          showPassDevice(G.players[me()].name, 'Das Spiel beginnt!', () => {
+          showPassDevice(G.players[me()].name, 'The game begins!', () => {
             render();
             startHumanTurn();
           });
@@ -2869,7 +2872,7 @@ function onPeekClose() {
       }
     } else {
       render();
-      setMessage(G.numHumans > 1 ? `${G.players[G.currentPlayer].name}: Schau dir noch die andere äußere Karte an!` : 'Schau dir noch die andere äußere Karte an!');
+      setMessage(G.numHumans > 1 ? `${G.players[G.currentPlayer].name}: Now peek at the other outer card!` : 'Now peek at the other outer card!');
     }
   }
 }
@@ -2914,7 +2917,7 @@ async function startAITurn(playerIdx) {
     G.drawnCard = G.discardPile.pop();
     G.drawnFrom = 'discard';
     const slot = aiBestSlotForValue(player, G.drawnCard.value);
-    logAI(player.name, `nimmt ${G.drawnCard.value} vom Ablagestapel`);
+    logAI(player.name, `takes ${G.drawnCard.value} from discard pile`);
     await delay(600);
     aiSwapCard(playerIdx, slot);
   } else {
@@ -2963,7 +2966,7 @@ async function startAITurn(playerIdx) {
   if (aiShouldKnock(player)) {
     G.knockedBy = playerIdx;
     G.lastRoundTurnsLeft = G.numPlayers - 1;
-    setMessage(`${player.name} klopft! Letzte Runde!`);
+    setMessage(`${player.name} knocks! Final round!`);
     render();
     await delay(G.diffCfg.aiDelay);
   }
@@ -2992,11 +2995,11 @@ async function aiHandleNumberCard(playerIdx, card, mustUse) {
   }
 
   if (doSwap && slot >= 0) {
-    logAI(player.name, `tauscht eine Karte`);
+    logAI(player.name, `swaps a card`);
     await delay(600);
     aiSwapCard(playerIdx, slot);
   } else {
-    logAI(player.name, `legt eine Karte ab`);
+    logAI(player.name, `discards a card`);
     discardCard(card);
     G.drawnCard = null;
   }
@@ -3007,7 +3010,7 @@ async function aiHandlePeekCard(playerIdx, mustUse) {
   const unknownSlot = aiFirstUnknownSlot(player);
 
   if (unknownSlot >= 0 && Math.random() < G.diffCfg.peekUseChance) {
-    logAI(player.name, `späht eine Karte`);
+    logAI(player.name, `peeks at a card`);
     player.known[unknownSlot] = true;
     player.memory[unknownSlot] = player.cards[unknownSlot].type === 'number' ? player.cards[unknownSlot].value : 99;
     discardCard(G.drawnCard);
@@ -3020,7 +3023,7 @@ async function aiHandlePeekCard(playerIdx, mustUse) {
     discardCard(G.drawnCard);
     G.drawnCard = null;
   } else {
-    logAI(player.name, `legt Spähen ab`);
+    logAI(player.name, `discards Peek`);
     discardCard(G.drawnCard);
     G.drawnCard = null;
   }
@@ -3033,7 +3036,7 @@ async function aiHandleSwapCard(playerIdx, mustUse) {
   if (highSlot >= 0 && player.memory[highSlot] >= G.diffCfg.swapCardMin) {
     const targetInfo = aiRandomOpponentSlot(playerIdx);
     if (targetInfo) {
-      logAI(player.name, `tauscht mit ${G.players[targetInfo.player].name}`);
+      logAI(player.name, `swaps with ${G.players[targetInfo.player].name}`);
       const ownCard = player.cards[highSlot];
       const targetCard = G.players[targetInfo.player].cards[targetInfo.slot];
       player.cards[highSlot] = targetCard;
@@ -3076,14 +3079,14 @@ async function aiHandleSwapCard(playerIdx, mustUse) {
     return;
   }
 
-  logAI(player.name, `legt Tausch ab`);
+  logAI(player.name, `discards Swap`);
   discardCard(G.drawnCard);
   G.drawnCard = null;
 }
 
 async function aiHandleDrawTwo(playerIdx) {
   const player = G.players[playerIdx];
-  logAI(player.name, `spielt 2× Ziehen`);
+  logAI(player.name, `plays Draw Two`);
   discardCard(G.drawnCard);
   G.drawnCard = null;
 
@@ -3143,13 +3146,13 @@ async function aiHandleCrazyChaos(playerIdx, mustUse) {
   const player = G.players[playerIdx];
   const highSlot = aiHighestKnownSlot(player);
   if (mustUse || (highSlot >= 0 && player.memory[highSlot] >= 7)) {
-    logAI(player.name, `löst Chaosbiber aus!`);
+    logAI(player.name, `triggers Chaos Beaver!`);
     discardCard(G.drawnCard);
     G.drawnCard = null;
     executeChaosbiber();
     await delay(600);
   } else {
-    logAI(player.name, `legt Chaosbiber ab`);
+    logAI(player.name, `discards Chaos Beaver`);
     discardCard(G.drawnCard);
     G.drawnCard = null;
   }
@@ -3158,7 +3161,7 @@ async function aiHandleCrazyChaos(playerIdx, mustUse) {
 async function aiHandleCrazySpion(playerIdx, mustUse) {
   const player = G.players[playerIdx];
   if (mustUse || G.difficulty === 'hard' || G.difficulty === 'impossible') {
-    logAI(player.name, `spioniert`);
+    logAI(player.name, `spies`);
     discardCard(G.drawnCard);
     G.drawnCard = null;
     const targetInfo = aiRandomOpponentSlot(playerIdx);
@@ -3172,7 +3175,7 @@ async function aiHandleCrazySpion(playerIdx, mustUse) {
     }
     await delay(600);
   } else {
-    logAI(player.name, `legt Spion ab`);
+    logAI(player.name, `discards Spy`);
     discardCard(G.drawnCard);
     G.drawnCard = null;
   }
@@ -3182,13 +3185,13 @@ async function aiHandleCrazyBlitz(playerIdx, mustUse) {
   const player = G.players[playerIdx];
   const knownAtZero = player.known[0] && player.memory[0] !== null;
   if (mustUse || (knownAtZero && player.memory[0] >= 7)) {
-    logAI(player.name, `löst Blitz aus!`);
+    logAI(player.name, `triggers Lightning!`);
     discardCard(G.drawnCard);
     G.drawnCard = null;
     executeBlitz();
     await delay(600);
   } else {
-    logAI(player.name, `legt Blitz ab`);
+    logAI(player.name, `discards Lightning`);
     discardCard(G.drawnCard);
     G.drawnCard = null;
   }
@@ -3199,13 +3202,13 @@ async function aiHandleTornado(playerIdx, mustUse) {
   const highSlot = aiHighestKnownSlot(player);
   const unknownCount = player.known.filter(k => !k).length;
   if (mustUse || unknownCount >= 3 || (highSlot >= 0 && player.memory[highSlot] >= 8)) {
-    logAI(player.name, 'löst Tornado aus! 🌪️');
+    logAI(player.name, 'triggers Tornado! 🌪️');
     discardCard(G.drawnCard);
     G.drawnCard = null;
     executeTornado();
     await delay(600);
   } else {
-    logAI(player.name, 'legt Tornado ab');
+    logAI(player.name, 'discards Tornado');
     discardCard(G.drawnCard);
     G.drawnCard = null;
   }
@@ -3213,7 +3216,7 @@ async function aiHandleTornado(playerIdx, mustUse) {
 
 async function aiHandleFreeze(playerIdx, mustUse) {
   const player = G.players[playerIdx];
-  logAI(player.name, 'spielt Freeze! ❄️');
+  logAI(player.name, 'plays Freeze! ❄️');
   discardCard(G.drawnCard);
   G.drawnCard = null;
   G.skipNextPlayer = true;
@@ -3227,7 +3230,7 @@ async function aiHandleSpiegel(playerIdx, mustUse) {
     if (!player.known[i]) unknowns.push(i);
   }
   if (unknowns.length >= 1 || mustUse) {
-    logAI(player.name, 'nutzt Spiegel 🪞');
+    logAI(player.name, 'uses Mirror 🪞');
     discardCard(G.drawnCard);
     G.drawnCard = null;
     const toReveal = shuffle([...unknowns]).slice(0, 2);
@@ -3237,7 +3240,7 @@ async function aiHandleSpiegel(playerIdx, mustUse) {
     }
     await delay(600);
   } else {
-    logAI(player.name, 'legt Spiegel ab');
+    logAI(player.name, 'discards Mirror');
     discardCard(G.drawnCard);
     G.drawnCard = null;
   }
@@ -3252,7 +3255,7 @@ async function aiHandleDieb(playerIdx, mustUse) {
     return;
   }
 
-  logAI(player.name, 'setzt Dieb ein! 🦝');
+  logAI(player.name, 'uses Thief! 🦝');
   discardCard(G.drawnCard);
   G.drawnCard = null;
 
@@ -3274,7 +3277,7 @@ async function aiHandleDieb(playerIdx, mustUse) {
       } else {
         G.players[targetInfo.player].known[targetInfo.slot] = false;
       }
-      logAI(player.name, 'stiehlt eine Karte!');
+      logAI(player.name, 'steals a card!');
     }
   }
   await delay(600);
@@ -3282,7 +3285,7 @@ async function aiHandleDieb(playerIdx, mustUse) {
 
 async function aiHandleGlueckspilz(playerIdx, mustUse) {
   const player = G.players[playerIdx];
-  logAI(player.name, 'nutzt Glückspilz! 🍀');
+  logAI(player.name, 'uses Lucky! 🍀');
   discardCard(G.drawnCard);
   G.drawnCard = null;
 
@@ -3444,17 +3447,17 @@ function showRoundEndOverlay(roundScores) {
   }
 
   document.getElementById('round-end-title').textContent =
-    G.roundNumber >= G.totalRounds ? 'Letzte Runde beendet!' : `Runde ${G.roundNumber} beendet`;
+    G.roundNumber >= G.totalRounds ? 'Final round complete!' : `Round ${G.roundNumber} complete`;
 
   const nextBtn = document.getElementById('next-round-btn');
   if (G.roundNumber >= G.totalRounds) {
-    nextBtn.textContent = 'Endergebnis';
+    nextBtn.textContent = 'Final Results';
     nextBtn.onclick = () => {
       document.getElementById('round-overlay').classList.add('hidden');
       showGameOver();
     };
   } else {
-    nextBtn.textContent = 'Nächste Runde';
+    nextBtn.textContent = 'Next Round';
     nextBtn.onclick = () => {
       document.getElementById('round-overlay').classList.add('hidden');
       G.roundNumber++;
@@ -3478,7 +3481,7 @@ function showGameOver() {
 
   const thead = document.createElement('thead');
   const headRow = document.createElement('tr');
-  ['Platz', 'Name', ...Array.from({ length: G.totalRounds }, (_, i) => `R${i + 1}`), 'Gesamt'].forEach(h => {
+  ['Rank', 'Name', ...Array.from({ length: G.totalRounds }, (_, i) => `R${i + 1}`), 'Total'].forEach(h => {
     const th = document.createElement('th');
     th.textContent = h;
     headRow.appendChild(th);
@@ -3535,8 +3538,8 @@ function showGameOver() {
 function render() {
   if (!G) return;
 
-  const diffLabels = { easy: 'Leicht', medium: 'Mittel', hard: 'Schwer', impossible: 'Unmöglich' };
-  document.getElementById('round-info').textContent = `Runde ${G.roundNumber} / ${G.totalRounds}  ·  ${diffLabels[G.difficulty] || ''}`;
+  const diffLabels = { easy: 'Easy', medium: 'Medium', hard: 'Hard', impossible: 'Impossible' };
+  document.getElementById('round-info').textContent = `Round ${G.roundNumber} / ${G.totalRounds}  ·  ${diffLabels[G.difficulty] || ''}`;
   renderScoreboard();
 
   // Opponents
@@ -3631,7 +3634,7 @@ function renderPiles() {
     applyCardFace(discardEl, discardTop);
   } else {
     discardEl.className = 'card empty-pile';
-    discardEl.innerHTML = '<span>leer</span>';
+    discardEl.innerHTML = '<span>empty</span>';
   }
 
   const canTakeDiscard = isHumanDraw && discardTop && discardTop.type === 'number';
@@ -3693,7 +3696,7 @@ function renderHumanCards() {
 
     const label = document.createElement('div');
     label.className = 'card-slot-label';
-    label.textContent = `Karte ${s + 1}`;
+    label.textContent = `Card ${s + 1}`;
     wrapper.appendChild(label);
 
     container.appendChild(wrapper);
@@ -3722,22 +3725,22 @@ function applyCardFace(el, card) {
 
   if (card.type === 'number' && card.value === -999) {
     el.classList.add('card-ueberbiber');
-    el.innerHTML = `<span class="card-icon">🌌</span><span class="card-value card-value-uber">−∞</span><span class="card-label">Überbiber</span>`;
+    el.innerHTML = `<span class="card-icon">🌌</span><span class="card-value card-value-uber">−∞</span><span class="card-label">Ultra Beaver</span>`;
   } else if (card.type === 'number' && card.value === 999) {
     el.classList.add('card-fluchbiber');
-    el.innerHTML = `<span class="card-icon">💀</span><span class="card-value card-value-uber">+∞</span><span class="card-label">Fluchbiber</span>`;
+    el.innerHTML = `<span class="card-icon">💀</span><span class="card-value card-value-uber">+∞</span><span class="card-label">Curse Beaver</span>`;
   } else if (card.type === 'number') {
     el.classList.add(`card-num-${card.value}`);
     el.innerHTML = `<span class="card-value">${card.value}</span>`;
   } else if (card.type === 'peek') {
     el.classList.add('card-peek');
-    el.innerHTML = `<span class="card-icon">👁</span><span class="card-label">Spähen</span>`;
+    el.innerHTML = `<span class="card-icon">👁</span><span class="card-label">Peek</span>`;
   } else if (card.type === 'swap') {
     el.classList.add('card-swap');
-    el.innerHTML = `<span class="card-icon">🔄</span><span class="card-label">Tausch</span>`;
+    el.innerHTML = `<span class="card-icon">🔄</span><span class="card-label">Swap</span>`;
   } else if (card.type === 'draw_two') {
     el.classList.add('card-draw-two');
-    el.innerHTML = `<span class="card-value">2×</span><span class="card-label">Ziehen</span>`;
+    el.innerHTML = `<span class="card-value">2×</span><span class="card-label">Draw</span>`;
   } else if (card.type === 'chaos') {
     el.classList.add('card-chaos');
     el.innerHTML = `<span class="card-icon">🌀</span><span class="card-label">Chaos</span>`;
@@ -3755,13 +3758,13 @@ function applyCardFace(el, card) {
     el.innerHTML = `<span class="card-icon">❄️</span><span class="card-label">Freeze</span>`;
   } else if (card.type === 'spiegel') {
     el.classList.add('card-spiegel');
-    el.innerHTML = `<span class="card-icon">🪞</span><span class="card-label">Spiegel</span>`;
+    el.innerHTML = `<span class="card-icon">🪞</span><span class="card-label">Mirror</span>`;
   } else if (card.type === 'dieb') {
     el.classList.add('card-dieb');
-    el.innerHTML = `<span class="card-icon">🦝</span><span class="card-label">Dieb</span>`;
+    el.innerHTML = `<span class="card-icon">🦝</span><span class="card-label">Thief</span>`;
   } else if (card.type === 'glueckspilz') {
     el.classList.add('card-glueckspilz');
-    el.innerHTML = `<span class="card-icon">🍀</span><span class="card-label">Glück</span>`;
+    el.innerHTML = `<span class="card-icon">🍀</span><span class="card-label">Lucky</span>`;
   }
 }
 
@@ -3837,7 +3840,7 @@ let xrayMode = false;
 let autoPlay = false;
 
 const CARD_OPTIONS = [
-  { type: 'number', value: -999, label: '−∞ Überbiber' },
+  { type: 'number', value: -999, label: '−∞ Ultra Beaver' },
   { type: 'number', value: -3, label: '-3' },
   { type: 'number', value: -2, label: '-2' },
   { type: 'number', value: -1, label: '-1' },
@@ -3851,18 +3854,18 @@ const CARD_OPTIONS = [
   { type: 'number', value: 7,  label: '7' },
   { type: 'number', value: 8,  label: '8' },
   { type: 'number', value: 9,  label: '9' },
-  { type: 'number', value: 999, label: '+∞ Fluchbiber' },
-  { type: 'peek',   value: null, label: 'Spähen' },
-  { type: 'swap',   value: null, label: 'Tausch' },
-  { type: 'draw_two', value: null, label: '2×Ziehen' },
+  { type: 'number', value: 999, label: '+∞ Curse Beaver' },
+  { type: 'peek',   value: null, label: 'Peek' },
+  { type: 'swap',   value: null, label: 'Swap' },
+  { type: 'draw_two', value: null, label: 'Draw Two' },
   { type: 'chaos',  value: null, label: 'Chaos' },
   { type: 'spion',  value: null, label: 'Spion' },
   { type: 'blitz',  value: null, label: 'Blitz' },
   { type: 'tornado', value: null, label: 'Tornado' },
   { type: 'freeze', value: null, label: 'Freeze' },
-  { type: 'spiegel', value: null, label: 'Spiegel' },
-  { type: 'dieb',   value: null, label: 'Dieb' },
-  { type: 'glueckspilz', value: null, label: 'Glück' },
+  { type: 'spiegel', value: null, label: 'Mirror' },
+  { type: 'dieb',   value: null, label: 'Thief' },
+  { type: 'glueckspilz', value: null, label: 'Lucky' },
 ];
 
 function toggleAdmin() {
@@ -3900,28 +3903,28 @@ function renderAdmin() {
 }
 
 function buildAdminState() {
-  const sec = adminSection('Spielzustand');
+  const sec = adminSection('Game State');
   const grid = document.createElement('div');
   grid.className = 'admin-state-grid';
 
   const phaseLabels = {
-    initial_peek: 'Anfangs-Peek', draw: 'Ziehen', drawn: 'Gezogen',
-    discard_swap: 'Abl.-Tausch', select_target: 'Ziel wählen',
-    spion_select: 'Spion-Ziel', knock_check: 'Klopf-Check',
-    draw_two_1: '2×Ziehen #1', draw_two_2: '2×Ziehen #2',
-    dt1_select_target: 'DT1-Ziel', dt2_select_target: 'DT2-Ziel',
-    round_end: 'Runde Ende', game_over: 'Spielende',
+    initial_peek: 'Initial Peek', draw: 'Draw', drawn: 'Drawn',
+    discard_swap: 'Discard Swap', select_target: 'Choose Target',
+    spion_select: 'Spy Target', knock_check: 'Knock Check',
+    draw_two_1: 'Draw Two #1', draw_two_2: 'Draw Two #2',
+    dt1_select_target: 'DT1 Target', dt2_select_target: 'DT2 Target',
+    round_end: 'Round End', game_over: 'Game Over',
   };
 
   const entries = [
     ['Phase', phaseLabels[G.phase] || G.phase],
-    ['Am Zug', G.players[G.currentPlayer]?.name || '–'],
-    ['Geklopft', G.knockedBy >= 0 ? G.players[G.knockedBy].name : '–'],
-    ['Letzte Züge', G.lastRoundTurnsLeft >= 0 ? G.lastRoundTurnsLeft : '–'],
-    ['Nachziehstapel', G.drawPile.length],
-    ['Ablagestapel', G.discardPile.length],
-    ['Runde', `${G.roundNumber} / ${G.totalRounds}`],
-    ['Gezogene Karte', G.drawnCard ? cardDisplayName(G.drawnCard) : '–'],
+    ['Current Turn', G.players[G.currentPlayer]?.name || '–'],
+    ['Knocked', G.knockedBy >= 0 ? G.players[G.knockedBy].name : '–'],
+    ['Turns Left', G.lastRoundTurnsLeft >= 0 ? G.lastRoundTurnsLeft : '–'],
+    ['Draw Pile', G.drawPile.length],
+    ['Discard Pile', G.discardPile.length],
+    ['Round', `${G.roundNumber} / ${G.totalRounds}`],
+    ['Drawn Card', G.drawnCard ? cardDisplayName(G.drawnCard) : '–'],
   ];
 
   for (const [label, value] of entries) {
@@ -3939,7 +3942,7 @@ function buildAdminState() {
 }
 
 function buildXRayToggle() {
-  const sec = adminSection('Sichtbarkeit');
+  const sec = adminSection('Visibility');
   const row = document.createElement('label');
   row.className = 'admin-toggle-row';
   const cb = document.createElement('input');
@@ -3951,13 +3954,13 @@ function buildXRayToggle() {
     render();
   });
   row.appendChild(cb);
-  row.appendChild(document.createTextNode('X-Ray Modus (alle Karten aufdecken)'));
+  row.appendChild(document.createTextNode('X-Ray Mode (reveal all cards)'));
   sec.appendChild(row);
   return sec;
 }
 
 function buildPlayerEditor() {
-  const sec = adminSection('Spieler & Karten');
+  const sec = adminSection('Players & Cards');
 
   for (let pi = 0; pi < G.numPlayers; pi++) {
     const p = G.players[pi];
@@ -3976,7 +3979,7 @@ function buildPlayerEditor() {
     const scoreLabel = document.createElement('span');
     scoreLabel.style.fontSize = '0.75rem';
     scoreLabel.style.color = 'rgba(255,255,255,0.4)';
-    scoreLabel.textContent = 'Pkt:';
+    scoreLabel.textContent = 'Pts:';
     header.appendChild(scoreLabel);
 
     const scoreInput = document.createElement('input');
@@ -4031,12 +4034,12 @@ function buildPlayerEditor() {
 }
 
 function buildDrawPileControl() {
-  const sec = adminSection('Nächste Karte festlegen');
+  const sec = adminSection('Set Next Card');
   const desc = document.createElement('div');
   desc.style.fontSize = '0.72rem';
   desc.style.color = 'rgba(255,255,255,0.4)';
   desc.style.marginBottom = '6px';
-  desc.textContent = 'Klicke, um diese Karte oben auf den Nachziehstapel zu legen:';
+  desc.textContent = 'Click to place this card on top of the draw pile:';
   sec.appendChild(desc);
 
   const row = document.createElement('div');
@@ -4059,29 +4062,29 @@ function buildDrawPileControl() {
 }
 
 function buildQuickActions() {
-  const sec = adminSection('Schnellaktionen');
+  const sec = adminSection('Quick Actions');
   const row = document.createElement('div');
   row.className = 'admin-actions';
 
   const actions = [
-    { label: 'Zug überspringen', cls: '', fn: () => { advanceTurn(); } },
-    { label: 'Klopfen (aktiv)', cls: 'admin-warn', fn: () => {
+    { label: 'Skip Turn', cls: '', fn: () => { advanceTurn(); } },
+    { label: 'Knock (active)', cls: 'admin-warn', fn: () => {
       G.knockedBy = G.currentPlayer;
       G.lastRoundTurnsLeft = G.numPlayers - 1;
-      setMessage(`${G.players[G.currentPlayer].name} klopft! (Admin)`);
+      setMessage(`${G.players[G.currentPlayer].name} knocks! (Admin)`);
       render();
     }},
-    { label: 'Runde beenden', cls: 'admin-danger', fn: () => { endRound(); } },
-    { label: 'Neue Runde', cls: 'admin-success', fn: () => {
+    { label: 'End Round', cls: 'admin-danger', fn: () => { endRound(); } },
+    { label: 'New Round', cls: 'admin-success', fn: () => {
       G.roundNumber++;
       if (G.roundNumber > G.totalRounds) G.totalRounds = G.roundNumber;
       startRound();
     }},
-    { label: 'Chaos auslösen', cls: '', fn: () => { executeChaosbiber(); setMessage('Admin: Chaos!'); render(); } },
-    { label: 'Blitz auslösen', cls: '', fn: () => { executeBlitz(); setMessage('Admin: Blitz!'); render(); } },
-    { label: 'Tornado auslösen', cls: 'admin-danger', fn: () => { executeTornado(); setMessage('Admin: Tornado! 🌪️'); render(); } },
-    { label: 'Freeze (nächster)', cls: '', fn: () => { G.skipNextPlayer = true; setMessage('Admin: Nächster Spieler eingefroren ❄️'); render(); } },
-    { label: 'Alle Karten aufdecken', cls: 'admin-warn', fn: () => {
+    { label: 'Trigger Chaos', cls: '', fn: () => { executeChaosbiber(); setMessage('Admin: Chaos!'); render(); } },
+    { label: 'Trigger Lightning', cls: '', fn: () => { executeBlitz(); setMessage('Admin: Lightning!'); render(); } },
+    { label: 'Trigger Tornado', cls: 'admin-danger', fn: () => { executeTornado(); setMessage('Admin: Tornado! 🌪️'); render(); } },
+    { label: 'Freeze (next)', cls: '', fn: () => { G.skipNextPlayer = true; setMessage('Admin: Next player frozen ❄️'); render(); } },
+    { label: 'Reveal All Cards', cls: 'admin-warn', fn: () => {
       for (const p of G.players) {
         p.known = [true, true, true, true];
         if (p.memory) p.memory = p.cards.map(c => c.type === 'number' ? c.value : 99);
@@ -4089,7 +4092,7 @@ function buildQuickActions() {
       G.humanPeekedSlots = [0, 1, 2, 3];
       render();
     }},
-    { label: 'Stapel mischen', cls: '', fn: () => { shuffle(G.drawPile); setMessage('Admin: Stapel gemischt'); render(); } },
+    { label: 'Shuffle Pile', cls: '', fn: () => { shuffle(G.drawPile); setMessage('Admin: Pile shuffled'); render(); } },
   ];
 
   for (const a of actions) {
@@ -4105,15 +4108,15 @@ function buildQuickActions() {
 }
 
 function buildDifficultyControl() {
-  const sec = adminSection('Schwierigkeit ändern');
+  const sec = adminSection('Change Difficulty');
   const row = document.createElement('div');
   row.className = 'admin-diff-row';
 
   const diffs = [
-    { key: 'easy', label: 'Leicht' },
-    { key: 'medium', label: 'Mittel' },
-    { key: 'hard', label: 'Schwer' },
-    { key: 'impossible', label: 'Unmöglich' },
+    { key: 'easy', label: 'Easy' },
+    { key: 'medium', label: 'Medium' },
+    { key: 'hard', label: 'Hard' },
+    { key: 'impossible', label: 'Impossible' },
   ];
 
   for (const d of diffs) {
@@ -4143,7 +4146,7 @@ function adminSection(title) {
 }
 
 function buildSpeedControl() {
-  const sec = adminSection('⚡ KI-Geschwindigkeit');
+  const sec = adminSection('⚡ AI Speed');
   const row = document.createElement('div');
   row.style.cssText = 'display:flex;align-items:center;gap:10px;';
 
@@ -4171,7 +4174,7 @@ function buildSpeedControl() {
 }
 
 function buildSetCurrentPlayer() {
-  const sec = adminSection('🎯 Aktueller Spieler');
+  const sec = adminSection('🎯 Current Player');
   const row = document.createElement('div');
   row.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap;';
 
@@ -4194,7 +4197,7 @@ function buildSetCurrentPlayer() {
 }
 
 function buildAIMemory() {
-  const sec = adminSection('🧠 KI-Gedächtnis');
+  const sec = adminSection('🧠 AI Memory');
   let hasAI = false;
 
   for (let i = 0; i < G.numPlayers; i++) {
@@ -4237,7 +4240,7 @@ function buildAIMemory() {
   if (!hasAI) {
     const msg = document.createElement('div');
     msg.style.cssText = 'font-size:0.75rem;color:rgba(255,255,255,0.4);padding:4px;';
-    msg.textContent = 'Keine KI-Spieler vorhanden.';
+    msg.textContent = 'No AI players present.';
     sec.appendChild(msg);
   }
 
@@ -4245,7 +4248,7 @@ function buildAIMemory() {
 }
 
 function buildDeckComposition() {
-  const sec = adminSection('📦 Stapel (' + G.drawPile.length + ' Karten)');
+  const sec = adminSection('📦 Pile (' + G.drawPile.length + ' cards)');
   const counts = {};
   for (const card of G.drawPile) {
     const key = card.type === 'number' ? String(card.value) : card.type;
@@ -4257,8 +4260,8 @@ function buildDeckComposition() {
 
   const allKeys = ['-999','-3','-2','-1','0','1','2','3','4','5','6','7','8','9','999','peek','swap','draw_two','chaos','spion','blitz','tornado','freeze','spiegel','dieb','glueckspilz'];
   const keyLabels = {'-999':'−∞','999':'+∞','-3':'-3','-2':'-2','-1':'-1','0':'0','1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9',
-    peek:'Späh', swap:'Tau', draw_two:'2×', chaos:'Cha', spion:'Spi', blitz:'Bli',
-    tornado:'Tor', freeze:'Fre', spiegel:'Spi', dieb:'Die', glueckspilz:'Glü'};
+    peek:'Peek', swap:'Swap', draw_two:'2×', chaos:'Cha', spion:'Spy', blitz:'Lit',
+    tornado:'Tor', freeze:'Fre', spiegel:'Mir', dieb:'Thi', glueckspilz:'Luc'};
 
   for (const key of allKeys) {
     const count = counts[key] || 0;
@@ -4274,12 +4277,12 @@ function buildDeckComposition() {
 }
 
 function buildGameLog() {
-  const sec = adminSection('📜 Spiellog');
+  const sec = adminSection('📜 Game Log');
   const list = document.createElement('div');
   list.className = 'admin-log-container';
 
   if (G.actionLog.length === 0) {
-    list.innerHTML = '<div class="admin-log-empty">Noch keine Aktionen</div>';
+    list.innerHTML = '<div class="admin-log-empty">No actions yet</div>';
   } else {
     for (let i = G.actionLog.length - 1; i >= 0; i--) {
       const entry = document.createElement('div');
@@ -4307,13 +4310,13 @@ function buildAutoPlayToggle() {
     }
   });
   row.appendChild(cb);
-  row.appendChild(document.createTextNode('KI spielt automatisch für dich'));
+  row.appendChild(document.createTextNode('AI plays automatically for you'));
   sec.appendChild(row);
   return sec;
 }
 
 function buildPhaseOverride() {
-  const sec = adminSection('🔧 Phase setzen');
+  const sec = adminSection('🔧 Set Phase');
   const allPhases = [
     'initial_peek','draw','drawn','discard_swap','select_target',
     'spion_select','dieb_select','dieb_swap','spiegel_1','spiegel_2',
@@ -4340,7 +4343,7 @@ function buildPhaseOverride() {
 }
 
 function buildRoundControl() {
-  const sec = adminSection('🔄 Runden-Kontrolle');
+  const sec = adminSection('🔄 Round Control');
   const row = document.createElement('div');
   row.style.cssText = 'display:flex;gap:12px;align-items:center;';
 
@@ -4361,8 +4364,8 @@ function buildRoundControl() {
     return wrap;
   };
 
-  row.appendChild(mkInput('Runde:', G.roundNumber, v => { G.roundNumber = v; render(); }));
-  row.appendChild(mkInput('von:', G.totalRounds, v => { G.totalRounds = v; render(); }));
+  row.appendChild(mkInput('Round:', G.roundNumber, v => { G.roundNumber = v; render(); }));
+  row.appendChild(mkInput('of:', G.totalRounds, v => { G.totalRounds = v; render(); }));
 
   sec.appendChild(row);
   return sec;
@@ -4370,7 +4373,7 @@ function buildRoundControl() {
 
 function buildHumanKnowledge() {
   const mi = me();
-  const sec = adminSection(`👁 ${G.players[mi].name} Kartenwissen`);
+  const sec = adminSection(`👁 ${G.players[mi].name} Card Knowledge`);
   const human = G.players[mi];
   const row = document.createElement('div');
   row.style.cssText = 'display:flex;gap:8px;align-items:center;';
@@ -4385,7 +4388,7 @@ function buildHumanKnowledge() {
     const cardVal = human.cards[i].type === 'number' ? human.cards[i].value : human.cards[i].type[0].toUpperCase();
     const lbl = document.createElement('span');
     lbl.style.cssText = 'font-size:0.68rem;color:rgba(255,255,255,0.5);';
-    lbl.textContent = `K${i + 1}: ${cardVal}`;
+    lbl.textContent = `C${i + 1}: ${cardVal}`;
     cb.addEventListener('change', () => {
       human.known[i] = cb.checked;
       if (cb.checked && !G.humanPeekedSlots.includes(i)) G.humanPeekedSlots.push(i);
@@ -4401,11 +4404,11 @@ function buildHumanKnowledge() {
 }
 
 function buildDiscardViewer() {
-  const sec = adminSection('🗑 Ablagestapel (' + G.discardPile.length + ')');
+  const sec = adminSection('🗑 Discard Pile (' + G.discardPile.length + ')');
   if (G.discardPile.length === 0) {
     const e = document.createElement('div');
     e.className = 'admin-log-empty';
-    e.textContent = 'Leer';
+    e.textContent = 'Empty';
     sec.appendChild(e);
     return sec;
   }
@@ -4423,11 +4426,11 @@ function buildDiscardViewer() {
 }
 
 function buildDrawPilePeek() {
-  const sec = adminSection('🔮 Nächste 5 Karten');
+  const sec = adminSection('🔮 Next 5 Cards');
   if (G.drawPile.length === 0) {
     const e = document.createElement('div');
     e.className = 'admin-log-empty';
-    e.textContent = 'Stapel leer';
+    e.textContent = 'Pile empty';
     sec.appendChild(e);
     return sec;
   }
@@ -4460,7 +4463,7 @@ function buildCheatActions() {
 
   const cheats = [
     // 1
-    { label: '👑 Biber-Gott', cls: 'admin-danger', fn: () => {
+    { label: '👑 Beaver God', cls: 'admin-danger', fn: () => {
       const MI = me(); const human = G.players[MI];
       const best = [-3, -2, -1, 0];
       for (let i = 0; i < 4; i++) {
@@ -4474,48 +4477,48 @@ function buildCheatActions() {
       }
       G.humanPeekedSlots = [0,1,2,3];
       G.players[me()].totalScore -= 30;
-      setMessage('BIBER-GOTT AKTIVIERT! Perfekte Hand + Gegner 9er + Score -30!'); render();
+      setMessage('BEAVER GOD ACTIVATED! Perfect hand + opponents 9s + Score -30!'); render();
     }},
     // 2
-    { label: '🏆 Perfekte Hand', cls: 'admin-success', fn: () => {
+    { label: '🏆 Perfect Hand', cls: 'admin-success', fn: () => {
       const v = [-3, -2, -1, 0];
       for (let i = 0; i < 4; i++) {
         G.players[me()].cards[i] = { id: 9900+i, type: 'number', value: v[i] };
         G.players[me()].known[i] = true;
       }
       G.humanPeekedSlots = [0,1,2,3];
-      setMessage('Perfekte Hand: -3, -2, -1, 0 = -6 Punkte!'); render();
+      setMessage('Perfect hand: -3, -2, -1, 0 = -6 points!'); render();
     }},
     // 3
-    { label: '😈 Gegner: alles 9er', cls: 'admin-danger', fn: () => {
+    { label: '😈 Opponents: all 9s', cls: 'admin-danger', fn: () => {
       for (let i = 1; i < G.numPlayers; i++)
         for (let s = 0; s < 4; s++)
           G.players[i].cards[s] = { id: 9910+i*4+s, type: 'number', value: 9 };
-      setMessage('Alle Gegner haben 36 Punkte!'); render();
+      setMessage('All opponents have 36 points!'); render();
     }},
     // 4
-    { label: '🏅 Sofort gewinnen', cls: 'admin-warn', fn: () => {
+    { label: '🏅 Instant Win', cls: 'admin-warn', fn: () => {
       G.players[me()].totalScore = -99;
       for (let i = 1; i < G.numPlayers; i++) G.players[i].totalScore = 999;
       G.roundNumber = G.totalRounds; endRound();
     }},
     // 5
-    { label: '🔮 Hellseher', cls: 'admin-success', fn: () => {
+    { label: '🔮 Clairvoyant', cls: 'admin-success', fn: () => {
       for (let i = 0; i < 4; i++) G.players[me()].known[i] = true;
       G.humanPeekedSlots = [0,1,2,3];
-      setMessage('Du siehst alle deine Karten!'); render();
+      setMessage('You can see all your cards!'); render();
     }},
     // 6
-    { label: '🧠 Gegner: Amnesie', cls: 'admin-warn', fn: () => {
+    { label: '🧠 Opponents: Amnesia', cls: 'admin-warn', fn: () => {
       for (let i = 0; i < G.numPlayers; i++) {
         if (i === me()) continue;
         G.players[i].known = [false,false,false,false];
         if(G.players[i].memory)G.players[i].memory = [null,null,null,null];
       }
-      setMessage('Alle Gegner haben alles vergessen!'); render();
+      setMessage('All opponents forgot everything!'); render();
     }},
     // 7
-    { label: '🦝 Bestes stehlen', cls: 'admin-warn', fn: () => {
+    { label: '🦝 Steal Best', cls: 'admin-warn', fn: () => {
       const h = G.players[me()];
       let bc = null, bp = -1, bs = -1;
       for (let i = 1; i < G.numPlayers; i++)
@@ -4528,12 +4531,12 @@ function buildCheatActions() {
         for (let s = 0; s < 4; s++) { const v = h.cards[s].type==='number'?h.cards[s].value:99; if(v>wv){wv=v;ws=s;} }
         G.players[bp].cards[bs] = h.cards[ws];
         h.cards[ws] = bc; h.known[ws] = true;
-        setMessage(`${bc.value} von ${G.players[bp].name} gestohlen!`);
+        setMessage(`${bc.value} stolen from ${G.players[bp].name}!`);
       }
       render();
     }},
     // 8
-    { label: '🏴‍☠️ Pirat: Alles Gute klauen', cls: 'admin-danger', fn: () => {
+    { label: '🏴‍☠️ Pirate: Steal All Good', cls: 'admin-danger', fn: () => {
       const h = G.players[me()];
       for (let i = 1; i < G.numPlayers; i++)
         for (let s = 0; s < 4; s++) {
@@ -4545,10 +4548,10 @@ function buildCheatActions() {
           }
         }
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage('Alle niedrigen Karten gestohlen!'); render();
+      setMessage('All low cards stolen!'); render();
     }},
     // 9
-    { label: '🧬 Klonarmee', cls: 'admin-success', fn: () => {
+    { label: '🧬 Clone Army', cls: 'admin-success', fn: () => {
       const h = G.players[me()];
       let best = h.cards[0], bestV = h.cards[0].type==='number'?h.cards[0].value:99;
       for (let i = 1; i < 4; i++) {
@@ -4560,10 +4563,10 @@ function buildCheatActions() {
         h.known[i] = true;
       }
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage(`Alle Karten sind jetzt ${bestV}!`); render();
+      setMessage(`All cards are now ${bestV}!`); render();
     }},
     // 10
-    { label: '🕳️ Schwarzes Loch', cls: 'admin-danger', fn: () => {
+    { label: '🕳️ Black Hole', cls: 'admin-danger', fn: () => {
       let removed = 0;
       for (const p of G.players)
         for (let s = 0; s < 4; s++)
@@ -4574,24 +4577,24 @@ function buildCheatActions() {
       G.drawPile = G.drawPile.filter(c => !(c.type==='number' && c.value===9));
       G.discardPile = G.discardPile.filter(c => !(c.type==='number' && c.value===9));
       G.humanPeekedSlots=[];
-      setMessage(`Schwarzes Loch: ${removed} Neuner aus Händen + alle aus Stapeln entfernt!`); render();
+      setMessage(`Black Hole: ${removed} nines removed from hands + all from piles!`); render();
     }},
     // 11
-    { label: '💎 Minus-Regen', cls: 'admin-success', fn: () => {
+    { label: '💎 Minus Rain', cls: 'admin-success', fn: () => {
       G.drawPile = [];
       const vals = [-3,-2,-1,-1,0,0];
       for (let i = 0; i < 24; i++) G.drawPile.push({ id: 8800+i, type:'number', value: vals[i%vals.length] });
       shuffle(G.drawPile);
-      setMessage('Stapel voller Minus-Karten!'); render();
+      setMessage('Pile full of minus cards!'); render();
     }},
     // 12
-    { label: '🎁 Geschenk-Stapel', cls: 'admin-success', fn: () => {
+    { label: '🎁 Gift Pile', cls: 'admin-success', fn: () => {
       const gifts = [-3,-2,-1,-1,0,0,0,1,1,1];
       for (let i = gifts.length-1; i >= 0; i--) G.drawPile.push({ id:8500+i, type:'number', value:gifts[i] });
-      setMessage('10 Top-Karten auf den Stapel gelegt!'); render();
+      setMessage('10 top cards placed on the pile!'); render();
     }},
     // 13
-    { label: '🌪️ Mega-Tornado', cls: 'admin-danger', fn: () => {
+    { label: '🌪️ Mega Tornado', cls: 'admin-danger', fn: () => {
       const all = [];
       for (const p of G.players) all.push(...p.cards);
       all.push(...G.drawPile.splice(0, 8));
@@ -4601,7 +4604,7 @@ function buildCheatActions() {
       }
       while(all.length>0)G.drawPile.push(all.pop());
       G.humanPeekedSlots=[];
-      setMessage('MEGA-Tornado! Alles durchgemischt!'); render();
+      setMessage('MEGA TORNADO! Everything shuffled!'); render();
     }},
     // 14
     { label: '🎪 Chaos-Party', cls: 'admin-danger', fn: () => {
@@ -4610,21 +4613,21 @@ function buildCheatActions() {
       setMessage('5x Chaos + Blitz + Tornado!'); render();
     }},
     // 15
-    { label: '⏮️ Doppelzug', cls: '', fn: () => {
+    { label: '⏮️ Double Turn', cls: '', fn: () => {
       G.currentPlayer = 0; G.phase = 'draw'; G.drawnCard = null;
-      setMessage('Du bist nochmal dran!'); startHumanTurn();
+      setMessage('Your turn again!'); startHumanTurn();
     }},
     // 16
-    { label: '❄️ Alle einfrieren', cls: '', fn: () => {
+    { label: '❄️ Freeze All', cls: '', fn: () => {
       G.skipNextPlayer = true;
       for (let i = 1; i < G.numPlayers; i++) {
         G.players[i].known = G.players[i].known.map(() => false);
         if (G.players[i].memory) G.players[i].memory = [null,null,null,null];
       }
-      setMessage('Alle Gegner eingefroren + Gedächtnis gelöscht!'); render();
+      setMessage('All opponents frozen + memory wiped!'); render();
     }},
     // 17
-    { label: '🔄 Kartenkarussell', cls: '', fn: () => {
+    { label: '🔄 Card Carousel', cls: '', fn: () => {
       const saved = G.players[G.numPlayers-1].cards.slice();
       for (let i = G.numPlayers-1; i > 0; i--) {
         G.players[i].cards = G.players[i-1].cards.slice();
@@ -4632,7 +4635,7 @@ function buildCheatActions() {
       }
       G.players[me()].cards = saved;
       G.players[me()].known=[false,false,false,false]; G.humanPeekedSlots=[];
-      setMessage('Alle Hände eine Position weitergeschoben!'); render();
+      setMessage('All hands shifted one position!'); render();
     }},
     // 18
     { label: '💣 Sabotage', cls: 'admin-danger', fn: () => {
@@ -4644,50 +4647,50 @@ function buildCheatActions() {
         if(G.players[i].memory){G.players[i].memory[highSlot]=null;G.players[i].memory[highSlot2]=null;}
         G.players[i].known[highSlot]=false; G.players[i].known[highSlot2]=false;
       }
-      setMessage('2 Karten jedes Gegners heimlich durch 8er/9er ersetzt!'); render();
+      setMessage('2 cards of each opponent secretly replaced with 8s/9s!'); render();
     }},
     // 19
     { label: '🎰 Jackpot', cls: '', fn: () => {
       const deck = shuffle(createDeck());
       G.drawPile.push(...deck);
-      setMessage(`${deck.length} Karten zum Stapel hinzugefügt!`); render();
+      setMessage(`${deck.length} cards added to the pile!`); render();
     }},
     // 20
-    { label: '✨ Sonderkarten-Stapel', cls: '', fn: () => {
+    { label: '✨ Special Cards Pile', cls: '', fn: () => {
       G.drawPile=[];
       const sp=['peek','swap','draw_two','chaos','spion','blitz','tornado','freeze','spiegel','dieb','glueckspilz'];
       for(let i=0;i<33;i++)G.drawPile.push({id:8600+i,type:sp[i%sp.length],value:null});
       shuffle(G.drawPile);
-      setMessage('Nur Sonderkarten im Stapel!'); render();
+      setMessage('Only special cards in the pile!'); render();
     }},
     // 21
-    { label: '🪄 Gegner-Score +50', cls: 'admin-danger', fn: () => {
+    { label: '🪄 Opponent Score +50', cls: 'admin-danger', fn: () => {
       for(let i=1;i<G.numPlayers;i++)G.players[i].totalScore+=50;
-      setMessage('Alle Gegner +50 Punkte!'); render();
+      setMessage('All opponents +50 points!'); render();
     }},
     // 22
-    { label: '💰 Dein Score -30', cls: 'admin-success', fn: () => {
+    { label: '💰 Your Score -30', cls: 'admin-success', fn: () => {
       G.players[me()].totalScore -= 30;
-      setMessage('Dein Score -30!'); render();
+      setMessage('Your score -30!'); render();
     }},
     // 23
-    { label: '📊 Gleichmacher', cls: '', fn: () => {
+    { label: '📊 Equalizer', cls: '', fn: () => {
       const avg = Math.round(G.players.reduce((s,p)=>s+p.totalScore,0)/G.numPlayers);
       for(const p of G.players)p.totalScore=avg;
-      setMessage(`Alle auf ${avg} Punkte!`); render();
+      setMessage(`Everyone at ${avg} points!`); render();
     }},
     // 24
-    { label: '⚡ Turbo-KI (100ms)', cls: '', fn: () => {
+    { label: '⚡ Turbo AI (100ms)', cls: '', fn: () => {
       G.diffCfg.aiDelay=100;
-      setMessage('KI in Lichtgeschwindigkeit!'); render();
+      setMessage('AI at light speed!'); render();
     }},
     // 25
     { label: '🐌 Slow-Mo (5s)', cls: '', fn: () => {
       G.diffCfg.aiDelay=5000;
-      setMessage('KI braucht 5 Sekunden pro Zug!'); render();
+      setMessage('AI takes 5 seconds per turn!'); render();
     }},
     // 26
-    { label: '🎯 Scharfschütze', cls: 'admin-warn', fn: () => {
+    { label: '🎯 Sharpshooter', cls: 'admin-warn', fn: () => {
       const h = G.players[me()];
       for (let s = 0; s < 4; s++) {
         if (h.cards[s].type==='number' && h.cards[s].value >= 5) {
@@ -4696,20 +4699,20 @@ function buildCheatActions() {
         h.known[s] = true;
       }
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage('Alle hohen Karten um 7 reduziert!'); render();
+      setMessage('All high cards reduced by 7!'); render();
     }},
     // 27
-    { label: '🔄 Runde neu', cls: '', fn: () => {
+    { label: '🔄 New Round', cls: '', fn: () => {
       for(const p of G.players){ if(p.roundScores.length>0)p.totalScore-=p.roundScores.pop(); }
       startRound();
     }},
     // 28
-    { label: '➕ Extra-Runde', cls: 'admin-success', fn: () => {
+    { label: '➕ Extra Round', cls: 'admin-success', fn: () => {
       G.totalRounds++;
-      setMessage(`Jetzt ${G.totalRounds} Runden!`); render();
+      setMessage(`Now ${G.totalRounds} rounds!`); render();
     }},
     // 29
-    { label: '🃏 Karten sortieren', cls: '', fn: () => {
+    { label: '🃏 Sort Cards', cls: '', fn: () => {
       const h = G.players[me()];
       const sorted = [...h.cards].sort((a,b) => {
         const va = a.type==='number'?a.value:99;
@@ -4717,57 +4720,57 @@ function buildCheatActions() {
         return va-vb;
       });
       for(let i=0;i<4;i++) h.cards[i]=sorted[i];
-      setMessage('Deine Karten nach Wert sortiert!'); render();
+      setMessage('Your cards sorted by value!'); render();
     }},
     // 30
-    { label: '🌌 Überbiber geben', cls: 'admin-danger', fn: () => {
+    { label: '🌌 Give Ultra Beaver', cls: 'admin-danger', fn: () => {
       let ws=0, wv=-9999;
       const h=G.players[me()];
       for(let s=0;s<4;s++){const v=h.cards[s].type==='number'?h.cards[s].value:99;if(v>wv){wv=v;ws=s;}}
       h.cards[ws]={id:6666,type:'number',value:-999};
       h.known[ws]=true; G.humanPeekedSlots=[0,1,2,3];
-      setMessage('🌌 ÜBERBIBER! Deine schlechteste Karte ist jetzt −∞!'); render();
+      setMessage('🌌 ULTRA BEAVER! Your worst card is now −∞!'); render();
     }},
     // 31
-    { label: '🌌 Überbiber-Hand (4x)', cls: 'admin-danger', fn: () => {
+    { label: '🌌 Ultra Beaver Hand (4x)', cls: 'admin-danger', fn: () => {
       for(let i=0;i<4;i++){
         G.players[me()].cards[i]={id:6660+i,type:'number',value:-999};
         G.players[me()].known[i]=true;
       }
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage('🌌🌌🌌🌌 4x ÜBERBIBER! −3996 Punkte! UNMÖGLICH ZU SCHLAGEN!'); render();
+      setMessage('🌌🌌🌌🌌 4x ULTRA BEAVER! −3996 points! IMPOSSIBLE TO BEAT!'); render();
     }},
     // 32
-    { label: '🌌 Überbiber auf Stapel', cls: 'admin-warn', fn: () => {
+    { label: '🌌 Ultra Beaver on Pile', cls: 'admin-warn', fn: () => {
       G.drawPile.push({id:6670,type:'number',value:-999});
-      setMessage('🌌 Überbiber oben auf dem Nachziehstapel!'); render();
+      setMessage('🌌 Ultra Beaver on top of the draw pile!'); render();
     }},
     // 33
-    { label: '📉 Scores auf 0', cls: '', fn: () => {
+    { label: '📉 Reset Scores to 0', cls: '', fn: () => {
       for(const p of G.players){p.totalScore=0;p.roundScores=[];}
-      setMessage('Alle Scores zurückgesetzt!'); render();
+      setMessage('All scores reset!'); render();
     }},
     // 31
-    { label: '🎲 Zufällige Hände', cls: '', fn: () => {
+    { label: '🎲 Random Hands', cls: '', fn: () => {
       const td = shuffle(createDeck().filter(c=>c.type==='number'));
       for(const p of G.players){
         for(let s=0;s<4;s++){p.cards[s]=td.pop()||{id:9999,type:'number',value:5};p.known[s]=false;if(p.memory)p.memory[s]=null;}
       }
       G.humanPeekedSlots=[];
-      setMessage('Alle Hände komplett neu gemischt!'); render();
+      setMessage('All hands completely reshuffled!'); render();
     }},
     // 32
-    { label: '⏩ Sofort Spielende', cls: 'admin-danger', fn: () => {
+    { label: '⏩ Instant Game End', cls: 'admin-danger', fn: () => {
       G.roundNumber=G.totalRounds; endRound();
     }},
     // 33
-    { label: '🎯 Nullen für dich', cls: 'admin-success', fn: () => {
+    { label: '🎯 Zeros for You', cls: 'admin-success', fn: () => {
       for(let i=0;i<4;i++){G.players[me()].cards[i]={id:9940+i,type:'number',value:0};G.players[me()].known[i]=true;}
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage('Alle deine Karten sind 0!'); render();
+      setMessage('All your cards are 0!'); render();
     }},
     // 34
-    { label: '🕵️ Alle Karten sehen', cls: 'admin-warn', fn: () => {
+    { label: '🕵️ See All Cards', cls: 'admin-warn', fn: () => {
       let msg = '';
       for(let i=0;i<G.numPlayers;i++){
         const p=G.players[i];
@@ -4777,10 +4780,10 @@ function buildCheatActions() {
       setMessage(msg); render();
     }},
     // 35
-    { label: '💀 Neuner-Flut', cls: 'admin-danger', fn: () => {
+    { label: '💀 Nine Flood', cls: 'admin-danger', fn: () => {
       G.drawPile=[];
       for(let i=0;i<25;i++)G.drawPile.push({id:8700+i,type:'number',value:9});
-      setMessage('Stapel voller 9er!'); render();
+      setMessage('Pile full of 9s!'); render();
     }},
     // 36
     { label: '🔥 Inferno', cls: 'admin-danger', fn: () => {
@@ -4791,35 +4794,35 @@ function buildCheatActions() {
           if(G.players[i].memory)G.players[i].memory[s]=null;
         }
       }
-      setMessage('Alle Gegnerkarten +4!'); render();
+      setMessage('All opponent cards +4!'); render();
     }},
     // 37
-    { label: '🧊 Eiszeit', cls: '', fn: () => {
+    { label: '🧊 Ice Age', cls: '', fn: () => {
       for(let i=0;i<4;i++){
         G.players[me()].cards[i]={id:9970+i,type:'number',value:-2};
         G.players[me()].known[i]=true;
       }
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage('Alle Karten sind Eisbiber (-2)!'); render();
+      setMessage('All cards are Ice Beaver (-2)!'); render();
     }},
     // 38
-    { label: '🥇 Goldbiber-Hand', cls: 'admin-success', fn: () => {
+    { label: '🥇 Gold Beaver Hand', cls: 'admin-success', fn: () => {
       for(let i=0;i<4;i++){
         G.players[me()].cards[i]={id:9980+i,type:'number',value:-3};
         G.players[me()].known[i]=true;
       }
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage('Alle Karten sind Goldbiber (-3)! = -12 Punkte!'); render();
+      setMessage('All cards are Gold Beaver (-3)! = -12 points!'); render();
     }},
     // 39
-    { label: '🎭 Identitätstausch', cls: 'admin-warn', fn: () => {
+    { label: '🎭 Identity Swap', cls: 'admin-warn', fn: () => {
       const target = 1 + Math.floor(Math.random()*(G.numPlayers-1));
       const myCards = G.players[me()].cards.slice();
       G.players[me()].cards = G.players[target].cards.slice();
       G.players[target].cards = myCards;
       G.players[me()].known=[false,false,false,false]; G.humanPeekedSlots=[];
       if(G.players[target].memory)G.players[target].memory=[null,null,null,null];
-      setMessage(`Hände mit ${G.players[target].name} getauscht!`); render();
+      setMessage(`Hands swapped with ${G.players[target].name}!`); render();
     }},
     // 40
     { label: '🧲 Magnet', cls: 'admin-success', fn: () => {
@@ -4834,16 +4837,16 @@ function buildCheatActions() {
         }
       }
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage(`${count} niedrige Karten aus dem Stapel magnetisiert!`); render();
+      setMessage(`${count} low cards magnetized from the pile!`); render();
     }},
     // 41
-    { label: '💫 Wunschkarte', cls: 'admin-success', fn: () => {
+    { label: '💫 Wish Card', cls: 'admin-success', fn: () => {
       let ws=0,wv=-99;
       const h=G.players[me()];
       for(let s=0;s<4;s++){const v=h.cards[s].type==='number'?h.cards[s].value:99;if(v>wv){wv=v;ws=s;}}
       h.cards[ws]={id:7500,type:'number',value:-3};
       h.known[ws]=true; G.humanPeekedSlots=[0,1,2,3];
-      setMessage('Schlechteste Karte wird Goldbiber (-3)!'); render();
+      setMessage('Worst card becomes Gold Beaver (-3)!'); render();
     }},
     // 42
     { label: '🌊 Flutwelle', cls: 'admin-danger', fn: () => {
@@ -4853,7 +4856,7 @@ function buildCheatActions() {
         if(G.players[i].memory)G.players[i].memory[worst]=null;
       }
       G.drawPile.unshift({id:7399,type:'number',value:-3});
-      setMessage('Gegner: je 1 zufällige Karte → 9er! Dein nächster Zug: Goldbiber!'); render();
+      setMessage('Opponents: 1 random card each → 9! Your next draw: Gold Beaver!'); render();
     }},
     // 43
     { label: '🎪 Zirkus', cls: '', fn: () => {
@@ -4864,7 +4867,7 @@ function buildCheatActions() {
           if(G.players[i].memory)G.players[i].memory[s]=99;
         }
       }
-      setMessage('Gegner haben nur Sonderkarten!'); render();
+      setMessage('Opponents have only special cards!'); render();
     }},
     // 44
     { label: '⚖️ Robin Hood', cls: '', fn: () => {
@@ -4880,7 +4883,7 @@ function buildCheatActions() {
         for(const idx of[bestP,worstP]){G.players[idx].known=[false,false,false,false];if(G.players[idx].memory)G.players[idx].memory=[null,null,null,null];}
         if(bestP===0||worstP===0)G.humanPeekedSlots=[];
       }
-      setMessage(`Robin Hood: ${G.players[bestP].name} ↔ ${G.players[worstP].name} getauscht!`); render();
+      setMessage(`Robin Hood: ${G.players[bestP].name} ↔ ${G.players[worstP].name} swapped!`); render();
     }},
     // 45
     { label: '🛡️ Schutzschild', cls: 'admin-success', fn: () => {
@@ -4895,10 +4898,10 @@ function buildCheatActions() {
         }
       }
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage('Schutzschild: KIs denken deine Karten sind 5 höher!'); render();
+      setMessage('Shield: AIs think your cards are 5 higher!'); render();
     }},
     // 46
-    { label: '🎩 Zauberer', cls: 'admin-warn', fn: () => {
+    { label: '🎩 Wizard', cls: 'admin-warn', fn: () => {
       const h=G.players[me()];
       for(let s=0;s<4;s++){
         if(h.cards[s].type!=='number'){
@@ -4907,13 +4910,13 @@ function buildCheatActions() {
         }
       }
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage('Alle Sonderkarten → Null-Biber (-1)!'); render();
+      setMessage('All special cards → Zero Beaver (-1)!'); render();
     }},
     // 47
-    { label: '🔮 Orakel', cls: '', fn: () => {
+    { label: '🔮 Oracle', cls: '', fn: () => {
       const top5=G.drawPile.slice(-5).reverse();
       const info=top5.map((c,i)=>`${i+1}: ${c.type==='number'?c.value:cardDisplayName(c)}`).join(' | ');
-      setMessage(`Nächste 5 Karten: ${info}`); render();
+      setMessage(`Next 5 cards: ${info}`); render();
     }},
     // 48
     { label: '💥 Nuklear', cls: 'admin-danger', fn: () => {
@@ -4928,10 +4931,10 @@ function buildCheatActions() {
       for(let i=0;i<4;i++){G.players[me()].cards[i]={id:7050+i,type:'number',value:v[i]};G.players[me()].known[i]=true;}
       G.humanPeekedSlots=[0,1,2,3];
       G.players[me()].totalScore-=25;
-      setMessage('NUKLEAR! Gegner: 9er+25 Score | Du: perfekt-25 Score!'); render();
+      setMessage('NUCLEAR! Opponents: 9s+25 Score | You: perfect-25 Score!'); render();
     }},
     // 49
-    { label: '🎶 Harmonie', cls: '', fn: () => {
+    { label: '🎶 Harmony', cls: '', fn: () => {
       const h=G.players[me()];
       const vals=h.cards.filter(c=>c.type==='number').map(c=>c.value);
       if(vals.length>=2){
@@ -4941,8 +4944,8 @@ function buildCheatActions() {
           h.known[s]=true;
         }
         G.humanPeekedSlots=[0,1,2,3];
-        setMessage(`Harmonie: Alle Karten sind jetzt ${min}!`);
-      } else { setMessage('Nicht genug Zahlenkarten!'); }
+        setMessage(`Harmony: All cards are now ${min}!`);
+      } else { setMessage('Not enough number cards!'); }
       render();
     }},
     // 50
@@ -4951,11 +4954,11 @@ function buildCheatActions() {
       if(lucky){
         for(let i=0;i<4;i++){G.players[me()].cards[i]={id:6900+i,type:'number',value:-2};G.players[me()].known[i]=true;}
         G.humanPeekedSlots=[0,1,2,3];
-        setMessage('GLÜCK! Alle deine Karten → -2!');
+        setMessage('LUCK! All your cards → -2!');
       } else {
         for(let i=0;i<4;i++){G.players[me()].cards[i]={id:6900+i,type:'number',value:8};G.players[me()].known[i]=true;}
         G.humanPeekedSlots=[0,1,2,3];
-        setMessage('PECH! Alle deine Karten → 8!');
+        setMessage('BAD LUCK! All your cards → 8!');
       }
       render();
     }},
@@ -4971,7 +4974,7 @@ function buildCheatActions() {
         }
       }
       G.humanPeekedSlots=[];
-      setMessage('Mutation! Alle Karten zufällig -3 bis +3 verändert!'); render();
+      setMessage('Mutation! All cards randomly changed by -3 to +3!'); render();
     }},
     // 52
     { label: '🏰 Festung', cls: 'admin-success', fn: () => {
@@ -4982,7 +4985,7 @@ function buildCheatActions() {
         if(G.players[i].memory)
           for(let s=0;s<4;s++)G.players[i].memory[s]=9;
       }
-      setMessage('Festung: Du siehst alles, KIs denken deine Karten sind 9!'); render();
+      setMessage('Fortress: You see everything, AIs think your cards are 9!'); render();
     }},
     // 53
     { label: '🌈 Regenbogen', cls: '', fn: () => {
@@ -4992,16 +4995,16 @@ function buildCheatActions() {
         G.players[me()].known[i]=true;
       }
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage('Regenbogen-Hand: -3, -1, 1, 3 = 0 Punkte!'); render();
+      setMessage('Rainbow hand: -3, -1, 1, 3 = 0 points!'); render();
     }},
     // 54
     { label: '⏰ Zeitbombe', cls: 'admin-danger', fn: () => {
       for(let i=0;i<3;i++)G.drawPile.push({id:6600+i,type:'number',value:9});
       for(let i=0;i<3;i++)G.drawPile.splice(Math.floor(Math.random()*G.drawPile.length),0,{id:6610+i,type:'number',value:-3});
-      setMessage('3 Neuner und 3 Goldbiber zufällig im Stapel versteckt!'); render();
+      setMessage('3 nines and 3 Gold Beavers hidden randomly in the pile!'); render();
     }},
     // 55
-    { label: '👻 Geisterhand', cls: '', fn: () => {
+    { label: '👻 Ghost Hand', cls: '', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         const s1=Math.floor(Math.random()*4), s2=(s1+2)%4;
         const temp=G.players[i].cards[s1];
@@ -5010,7 +5013,7 @@ function buildCheatActions() {
         if(G.players[i].memory){G.players[i].memory[s1]=null;G.players[i].memory[s2]=null;}
         G.players[i].known[s1]=false;G.players[i].known[s2]=false;
       }
-      setMessage('Geisterhand: 2 Karten jedes Gegners heimlich vertauscht!'); render();
+      setMessage('Ghost Hand: 2 cards of each opponent secretly swapped!'); render();
     }},
     // 56
     { label: '🤑 Geldregen', cls: 'admin-success', fn: () => {
@@ -5028,7 +5031,7 @@ function buildCheatActions() {
       setMessage('Finsternis: KIs vergessen alles + je 1 heimlicher 9er!'); render();
     }},
     // 58
-    { label: '🫅 Königstausch', cls: 'admin-warn', fn: () => {
+    { label: '🫅 King Swap', cls: 'admin-warn', fn: () => {
       let worstP=1,worstS=0,worstV=-99;
       for(let i=1;i<G.numPlayers;i++)
         for(let s=0;s<4;s++){
@@ -5047,21 +5050,21 @@ function buildCheatActions() {
       G.players[worstP].cards[worstS]=temp;
       G.players[me()].known[bestS]=true; G.humanPeekedSlots=[0,1,2,3];
       if(G.players[worstP].memory)G.players[worstP].memory[worstS]=null;
-      setMessage(`Deine beste Karte (${bestV}) ↔ ${G.players[worstP].name}s schlechteste (${worstV}) — wait, das ist gut für DICH? Nein, Königstausch heißt du gibst deine BESTE und kriegst die SCHLECHTESTE! Mist!`);
+      setMessage(`Your best card (${bestV}) ↔ ${G.players[worstP].name}'s worst (${worstV}) — wait, that's good for YOU? No, King Swap means you give your BEST and get the WORST! Oops!`);
       render();
     }},
     // --- BAN ---
-    { label: '🚫 Spieler bannen', cls: 'admin-danger', fn: () => {
-      if(G.numPlayers <= 2){ setMessage('Mindestens 2 Spieler nötig!'); render(); return; }
+    { label: '🚫 Ban Player', cls: 'admin-danger', fn: () => {
+      if(G.numPlayers <= 2){ setMessage('At least 2 players needed!'); render(); return; }
       const target = G.numPlayers - 1;
       const name = G.players[target].name;
       G.players.splice(target, 1);
       G.numPlayers--;
       if(G.currentPlayer >= G.numPlayers) G.currentPlayer = 0;
-      setMessage(`🚫 ${name} wurde GEBANNT! Nur noch ${G.numPlayers} Spieler!`); render();
+      setMessage(`🚫 ${name} was BANNED! Only ${G.numPlayers} players left!`); render();
     }},
-    // --- MEHR KARTEN ---
-    { label: '🃏 +1 Karte für alle', cls: 'admin-warn', fn: () => {
+    // --- MORE CARDS ---
+    { label: '🃏 +1 Card for All', cls: 'admin-warn', fn: () => {
       const deck = shuffle(createDeck().filter(c=>c.type==='number'));
       for(const p of G.players){
         const c = deck.pop() || {id:5500,type:'number',value:5};
@@ -5069,9 +5072,9 @@ function buildCheatActions() {
         p.known.push(false);
         if(p.memory) p.memory.push(null);
       }
-      setMessage(`Jeder hat jetzt ${G.players[me()].cards.length} Karten!`); render();
+      setMessage(`Everyone now has ${G.players[me()].cards.length} cards!`); render();
     }},
-    { label: '🃏🃏 +2 Karten für alle', cls: 'admin-warn', fn: () => {
+    { label: '🃏🃏 +2 Cards for All', cls: 'admin-warn', fn: () => {
       const deck = shuffle(createDeck().filter(c=>c.type==='number'));
       for(const p of G.players){
         for(let x=0;x<2;x++){
@@ -5081,18 +5084,18 @@ function buildCheatActions() {
           if(p.memory) p.memory.push(null);
         }
       }
-      setMessage(`Jeder hat jetzt ${G.players[me()].cards.length} Karten!`); render();
+      setMessage(`Everyone now has ${G.players[me()].cards.length} cards!`); render();
     }},
-    { label: '🃏 +1 Karte nur für dich', cls: 'admin-success', fn: () => {
+    { label: '🃏 +1 Card for You Only', cls: 'admin-success', fn: () => {
       const vals = [-3,-2,-1,0];
       const v = vals[Math.floor(Math.random()*vals.length)];
       G.players[me()].cards.push({id:5600,type:'number',value:v});
       G.players[me()].known.push(true);
       G.humanPeekedSlots.push(G.players[me()].cards.length-1);
-      setMessage(`+1 Karte (${v}) für dich! Du hast jetzt ${G.players[me()].cards.length} Karten!`); render();
+      setMessage(`+1 card (${v}) for you! You now have ${G.players[me()].cards.length} cards!`); render();
     }},
     // --- 10 NEUE CHEATS ---
-    { label: '🔥 Fegefeuer', cls: 'admin-danger', fn: () => {
+    { label: '🔥 Purgatory', cls: 'admin-danger', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         for(let s=0;s<G.players[i].cards.length;s++){
           if(G.players[i].cards[s].type==='number' && G.players[i].cards[s].value<=3){
@@ -5101,9 +5104,9 @@ function buildCheatActions() {
           if(G.players[i].memory) G.players[i].memory[s]=null;
         }
       }
-      setMessage('Fegefeuer: Alle Gegnerkarten ≤3 werden 9er!'); render();
+      setMessage('Purgatory: All opponent cards ≤3 become 9s!'); render();
     }},
-    { label: '🪞 Spiegel-Fluch', cls: 'admin-warn', fn: () => {
+    { label: '🪞 Mirror Curse', cls: 'admin-warn', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         for(let s=0;s<G.players[i].cards.length;s++){
           const c=G.players[i].cards[s];
@@ -5111,9 +5114,9 @@ function buildCheatActions() {
           if(G.players[i].memory) G.players[i].memory[s]=null;
         }
       }
-      setMessage('Spiegel-Fluch: Alle Gegnerwerte gespiegelt! (0→9, 1→8, 9→0 ...)'); render();
+      setMessage('Mirror Curse: All opponent values mirrored! (0→9, 1→8, 9→0 ...)'); render();
     }},
-    { label: '🎯 Halbieren', cls: 'admin-success', fn: () => {
+    { label: '🎯 Halve', cls: 'admin-success', fn: () => {
       const h=G.players[me()];
       for(let s=0;s<h.cards.length;s++){
         if(h.cards[s].type==='number' && h.cards[s].value>0)
@@ -5121,22 +5124,22 @@ function buildCheatActions() {
         h.known[s]=true;
       }
       G.humanPeekedSlots=h.cards.map((_,i)=>i);
-      setMessage('Alle positiven Kartenwerte halbiert!'); render();
+      setMessage('All positive card values halved!'); render();
     }},
-    { label: '🎲 Würfel des Schicksals', cls: '', fn: () => {
+    { label: '🎲 Dice of Fate', cls: '', fn: () => {
       const roll = Math.floor(Math.random()*6)+1;
       const effects = [
-        ()=>{ for(let i=0;i<4;i++){G.players[me()].cards[i]={id:6000+i,type:'number',value:0};G.players[me()].known[i]=true;} G.humanPeekedSlots=[0,1,2,3]; return '🎯 Alle Nullen!'; },
-        ()=>{ for(let i=1;i<G.numPlayers;i++)G.players[i].totalScore+=20; return '😈 Gegner +20!'; },
+        ()=>{ for(let i=0;i<4;i++){G.players[me()].cards[i]={id:6000+i,type:'number',value:0};G.players[me()].known[i]=true;} G.humanPeekedSlots=[0,1,2,3]; return '🎯 All Zeros!'; },
+        ()=>{ for(let i=1;i<G.numPlayers;i++)G.players[i].totalScore+=20; return '😈 Opponents +20!'; },
         ()=>{ G.players[me()].totalScore-=15; return '💰 Score -15!'; },
-        ()=>{ G.drawPile.push({id:6050,type:'number',value:-999}); return '🌌 Überbiber auf Stapel!'; },
+        ()=>{ G.drawPile.push({id:6050,type:'number',value:-999}); return '🌌 Ultra Beaver on pile!'; },
         ()=>{ executeTornado(); return '🌪️ Tornado!'; },
-        ()=>{ for(let i=1;i<G.numPlayers;i++){G.players[i].known=[false,false,false,false];if(G.players[i].memory)G.players[i].memory=[null,null,null,null];} return '🧠 Amnesie!'; },
+        ()=>{ for(let i=1;i<G.numPlayers;i++){G.players[i].known=[false,false,false,false];if(G.players[i].memory)G.players[i].memory=[null,null,null,null];} return '🧠 Amnesia!'; },
       ];
       const msg = effects[roll-1]();
-      setMessage(`🎲 Würfel: ${roll} → ${msg}`); render();
+      setMessage(`🎲 Dice: ${roll} → ${msg}`); render();
     }},
-    { label: '💀 Todesurteil', cls: 'admin-danger', fn: () => {
+    { label: '💀 Death Sentence', cls: 'admin-danger', fn: () => {
       let maxP=1,maxS=0;
       for(let i=1;i<G.numPlayers;i++){
         const s=G.players[i].cards.reduce((a,c)=>a+(c.type==='number'?c.value:0),0);
@@ -5146,7 +5149,7 @@ function buildCheatActions() {
       for(let s=0;s<G.players[maxP].cards.length;s++)
         G.players[maxP].cards[s]={id:6100+s,type:'number',value:9};
       G.players[maxP].totalScore+=30;
-      setMessage(`💀 ${G.players[maxP].name}: Alle Karten → 9 + Score +30!`); render();
+      setMessage(`💀 ${G.players[maxP].name}: All cards → 9 + Score +30!`); render();
     }},
     { label: '🌟 Supernova', cls: 'admin-danger', fn: () => {
       for(const p of G.players){
@@ -5159,13 +5162,13 @@ function buildCheatActions() {
         }
       }
       G.humanPeekedSlots=[];
-      setMessage('SUPERNOVA! Alle Karten zufällig -3 bis 9!'); render();
+      setMessage('SUPERNOVA! All cards randomly -3 to 9!'); render();
     }},
     { label: '🏦 Bankraub', cls: 'admin-success', fn: () => {
       let total=0;
       for(let i=1;i<G.numPlayers;i++){total+=10;G.players[i].totalScore+=10;}
       G.players[me()].totalScore-=total;
-      setMessage(`Bankraub: ${total} Punkte von Gegnern auf dich übertragen (umgekehrt)!`); render();
+      setMessage(`Bank Heist: ${total} points from opponents transferred to you (reversed)!`); render();
     }},
     { label: '🤖 KI-Sabotage', cls: 'admin-warn', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
@@ -5177,7 +5180,7 @@ function buildCheatActions() {
           }
         }
       }
-      setMessage('KI-Sabotage: KIs denken ihre guten Karten sind schlecht und umgekehrt!'); render();
+      setMessage('AI Sabotage: AIs think their good cards are bad and vice versa!'); render();
     }},
     { label: '🎪 Kopie-Wurm', cls: '', fn: () => {
       const h=G.players[me()];
@@ -5193,11 +5196,11 @@ function buildCheatActions() {
           G.players[i].cards[ws]={id:6300+i,type:bestC.type,value:bestC.value};
           if(G.players[i].memory)G.players[i].memory[ws]=null;
         }
-        setMessage(`Kopie-Wurm: Dein ${bestV} wurde bei jedem Gegner eingeschleust!`);
+        setMessage(`Copy Worm: Your ${bestV} was injected into every opponent!`);
       }
       render();
     }},
-    { label: '⚰️ Endgegner', cls: 'admin-danger', fn: () => {
+    { label: '⚰️ Final Boss', cls: 'admin-danger', fn: () => {
       const v=[-999,-3,-2,-1];
       for(let i=0;i<4;i++){G.players[me()].cards[i]={id:6400+i,type:'number',value:v[i]};G.players[me()].known[i]=true;}
       G.humanPeekedSlots=[0,1,2,3];
@@ -5207,7 +5210,7 @@ function buildCheatActions() {
         if(G.players[i].memory)G.players[i].memory=[null,null,null,null];
       }
       G.players[me()].totalScore-=50;
-      setMessage('⚰️ ENDGEGNER AKTIVIERT! −∞ Hand + Gegner 9er + Score-Dominanz!'); render();
+      setMessage('⚰️ FINAL BOSS ACTIVATED! −∞ hand + opponents 9s + score dominance!'); render();
     }},
     // ==================== BAN ZONE ====================
     { label: '🐸 Frosch-Fluch (Deadlock)', cls: 'admin-danger', fn: () => {
@@ -5220,18 +5223,18 @@ function buildCheatActions() {
       G.players[t].known=[false,false,false,false];
       G.players[t].totalScore+=100;
       G.players[t].name='🐸 '+name;
-      setMessage(`🐸 ${name} wurde in einen FROSCH verwandelt! Alle 9er + 100 Score!`); render();
+      setMessage(`🐸 ${name} was turned into a FROG! All 9s + 100 Score!`); render();
     }},
-    { label: '🚫 Letzten bannen', cls: 'admin-danger', fn: () => {
-      if(G.numPlayers<=2){setMessage('Min. 2 Spieler!');render();return;}
+    { label: '🚫 Ban Last', cls: 'admin-danger', fn: () => {
+      if(G.numPlayers<=2){setMessage('Min. 2 players!');render();return;}
       const t=G.numPlayers-1;
       const name=G.players[t].name;
       G.players.splice(t,1); G.numPlayers--;
       if(G.currentPlayer>=G.numPlayers)G.currentPlayer=0;
-      setMessage(`🚫 ${name} GEBANNT! Noch ${G.numPlayers} Spieler!`); render();
+      setMessage(`🚫 ${name} BANNED! ${G.numPlayers} players left!`); render();
     }},
-    { label: '🚫 Besten Gegner bannen', cls: 'admin-danger', fn: () => {
-      if(G.numPlayers<=2){setMessage('Min. 2 Spieler!');render();return;}
+    { label: '🚫 Ban Best Opponent', cls: 'admin-danger', fn: () => {
+      if(G.numPlayers<=2){setMessage('Min. 2 players!');render();return;}
       let bestI=1,bestS=999;
       for(let i=1;i<G.numPlayers;i++){
         if(G.players[i].totalScore<bestS){bestS=G.players[i].totalScore;bestI=i;}
@@ -5239,17 +5242,17 @@ function buildCheatActions() {
       const name=G.players[bestI].name;
       G.players.splice(bestI,1); G.numPlayers--;
       if(G.currentPlayer>=G.numPlayers)G.currentPlayer=0;
-      setMessage(`🚫 ${name} (Score: ${bestS}) GEBANNT – zu gut!`); render();
+      setMessage(`🚫 ${name} (Score: ${bestS}) BANNED – too good!`); render();
     }},
-    { label: '🚫 Alle bis auf 1 bannen', cls: 'admin-danger', fn: () => {
-      if(G.numPlayers<=2){setMessage('Nur noch 2 Spieler!');render();return;}
+    { label: '🚫 Ban All But One', cls: 'admin-danger', fn: () => {
+      if(G.numPlayers<=2){setMessage('Only 2 players left!');render();return;}
       const names=[];
       while(G.numPlayers>2){
         names.push(G.players[G.numPlayers-1].name);
         G.players.splice(G.numPlayers-1,1); G.numPlayers--;
       }
       G.currentPlayer=Math.min(G.currentPlayer,G.numPlayers-1);
-      setMessage(`🚫 ${names.join(', ')} ALLE GEBANNT! 1v1!`); render();
+      setMessage(`🚫 ${names.join(', ')} ALL BANNED! 1v1!`); render();
     }},
     { label: '☠️ Perma-Nerf', cls: 'admin-danger', fn: () => {
       const t=1+Math.floor(Math.random()*(G.numPlayers-1));
@@ -5258,16 +5261,16 @@ function buildCheatActions() {
         G.players[t].cards[s]={id:5100+s,type:'number',value:9};
         if(G.players[t].memory)G.players[t].memory[s]=null;
       }
-      setMessage(`☠️ ${G.players[t].name}: Score +200 + alle 9er! Permanent generft!`); render();
+      setMessage(`☠️ ${G.players[t].name}: Score +200 + all 9s! Permanently nerfed!`); render();
     }},
-    { label: '🔇 Stumm-Schalten', cls: 'admin-warn', fn: () => {
+    { label: '🔇 Mute', cls: 'admin-warn', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         G.players[i].known=[false,false,false,false];
         if(G.players[i].memory)G.players[i].memory=[null,null,null,null];
         G.players[i].totalScore+=15;
       }
       G.skipNextPlayer=true;
-      setMessage('🔇 Alle Gegner: Amnesie + Score+15 + nächster übersprungen!'); render();
+      setMessage('🔇 All opponents: Amnesia + Score+15 + next skipped!'); render();
     }},
     { label: '🧊 Kryo-Ban', cls: 'admin-danger', fn: () => {
       const t=1+Math.floor(Math.random()*(G.numPlayers-1));
@@ -5278,9 +5281,9 @@ function buildCheatActions() {
       G.players[t].known=[false,false,false,false];
       G.players[t].totalScore+=50;
       G.players[t].name='🧊 '+G.players[t].name.replace(/^🧊 /,'');
-      setMessage(`🧊 ${G.players[t].name} eingefroren! 8/9er + Score +50!`); render();
+      setMessage(`🧊 ${G.players[t].name} frozen! 8s/9s + Score +50!`); render();
     }},
-    { label: '🎭 Identitätsdiebstahl', cls: 'admin-warn', fn: () => {
+    { label: '🎭 Identity Theft', cls: 'admin-warn', fn: () => {
       const t=1+Math.floor(Math.random()*(G.numPlayers-1));
       const theirCards=G.players[t].cards.map(c=>({...c}));
       G.players[t].cards=G.players[me()].cards.map(c=>({...c}));
@@ -5289,9 +5292,9 @@ function buildCheatActions() {
       G.players[t].known=[false,false,false,false];
       if(G.players[t].memory)G.players[t].memory=[null,null,null,null];
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage(`🎭 Karten mit ${G.players[t].name} getauscht + du siehst alles!`); render();
+      setMessage(`🎭 Cards swapped with ${G.players[t].name} + you see everything!`); render();
     }},
-    { label: '💀 Todes-Spirale', cls: 'admin-danger', fn: () => {
+    { label: '💀 Death Spiral', cls: 'admin-danger', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         const add = 10 * i;
         G.players[i].totalScore += add;
@@ -5299,9 +5302,9 @@ function buildCheatActions() {
         G.players[i].cards[worst]={id:5300+i,type:'number',value:9};
         if(G.players[i].memory)G.players[i].memory[worst]=null;
       }
-      setMessage('💀 Todes-Spirale: Gegner 1 +10, Gegner 2 +20, Gegner 3 +30... + je 1 Neuner!'); render();
+      setMessage('💀 Death Spiral: Opponent 1 +10, Opponent 2 +20, Opponent 3 +30... + 1 nine each!'); render();
     }},
-    { label: '🏴 Schwarze Liste', cls: 'admin-danger', fn: () => {
+    { label: '🏴 Blacklist', cls: 'admin-danger', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         G.players[i].name='⛔ '+G.players[i].name.replace(/^⛔ /,'');
         G.players[i].totalScore += 25;
@@ -5312,9 +5315,9 @@ function buildCheatActions() {
           if(G.players[i].memory)G.players[i].memory[s]=null;
         }
       }
-      setMessage('🏴 Schwarze Liste: Alle Gegner markiert + Score+25 + Karten ≤4 werden +5!'); render();
+      setMessage('🏴 Blacklist: All opponents marked + Score+25 + cards ≤4 become +5!'); render();
     }},
-    { label: '👹 Fluch der 9', cls: 'admin-danger', fn: () => {
+    { label: '👹 Curse of 9', cls: 'admin-danger', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         const slots=G.players[i].cards.length;
         const cursed=Math.min(3,slots);
@@ -5325,9 +5328,9 @@ function buildCheatActions() {
           if(G.players[i].memory)G.players[i].memory[indices[x]]=null;
         }
       }
-      setMessage('👹 Fluch der 9: 3 zufällige Karten jedes Gegners → 9er!'); render();
+      setMessage('👹 Curse of 9: 3 random cards of each opponent → 9s!'); render();
     }},
-    { label: '🪦 Grab-Räuber', cls: 'admin-warn', fn: () => {
+    { label: '🪦 Grave Robber', cls: 'admin-warn', fn: () => {
       const stolen=[];
       for(let i=1;i<G.numPlayers;i++){
         for(let s=0;s<G.players[i].cards.length;s++){
@@ -5340,10 +5343,10 @@ function buildCheatActions() {
         }
       }
       for(const c of stolen) G.drawPile.push(c);
-      setMessage(`🪦 ${stolen.length} Minus/Null-Karten von Gegnern geraubt (→9er) und auf den Stapel gelegt!`); render();
+      setMessage(`🪦 ${stolen.length} minus/zero cards robbed from opponents (→9s) and placed on the pile!`); render();
     }},
     // ==================== MEGA CHEAT PACK ====================
-    { label: '🔁 Umkehr-Runde', cls: '', fn: () => {
+    { label: '🔁 Reverse Round', cls: '', fn: () => {
       for(const p of G.players){
         for(let s=0;s<p.cards.length;s++){
           if(p.cards[s].type==='number') p.cards[s]={id:4000+s,type:'number',value:9-p.cards[s].value};
@@ -5351,19 +5354,19 @@ function buildCheatActions() {
         }
       }
       G.humanPeekedSlots=[];
-      setMessage('🔁 ALLE Kartenwerte umgekehrt! 0→9, 9→0, -3→12!'); render();
+      setMessage('🔁 ALL card values reversed! 0→9, 9→0, -3→12!'); render();
     }},
     { label: '🎰 Slot Machine', cls: 'admin-warn', fn: () => {
       const results=['🍒','🍋','💎','🌟','💀'];
       const r=results[Math.floor(Math.random()*results.length)];
       if(r==='🍒'){G.players[me()].totalScore-=10;setMessage('🎰 🍒🍒🍒 Score -10!');}
-      else if(r==='🍋'){for(let i=0;i<4;i++){G.players[me()].cards[i]={id:4100+i,type:'number',value:1};G.players[me()].known[i]=true;}G.humanPeekedSlots=[0,1,2,3];setMessage('🎰 🍋🍋🍋 Alle Einser!');}
-      else if(r==='💎'){G.players[me()].cards[0]={id:4110,type:'number',value:-999};G.players[me()].known[0]=true;G.humanPeekedSlots=[0,1,2,3];setMessage('🎰 💎💎💎 ÜBERBIBER!');}
+      else if(r==='🍋'){for(let i=0;i<4;i++){G.players[me()].cards[i]={id:4100+i,type:'number',value:1};G.players[me()].known[i]=true;}G.humanPeekedSlots=[0,1,2,3];setMessage('🎰 🍋🍋🍋 All ones!');}
+      else if(r==='💎'){G.players[me()].cards[0]={id:4110,type:'number',value:-999};G.players[me()].known[0]=true;G.humanPeekedSlots=[0,1,2,3];setMessage('🎰 💎💎💎 ULTRA BEAVER!');}
       else if(r==='🌟'){G.players[me()].totalScore-=50;setMessage('🎰 🌟🌟🌟 JACKPOT! Score -50!');}
-      else{G.players[me()].totalScore+=30;setMessage('🎰 💀💀💀 VERLOREN! Score +30!');}
+      else{G.players[me()].totalScore+=30;setMessage('🎰 💀💀💀 LOST! Score +30!');}
       render();
     }},
-    { label: '🎵 Musikalische Stühle', cls: '', fn: () => {
+    { label: '🎵 Musical Chairs', cls: '', fn: () => {
       const hands=G.players.map(p=>p.cards.map(c=>({...c})));
       for(let i=0;i<G.numPlayers;i++){
         const next=(i+1)%G.numPlayers;
@@ -5372,9 +5375,9 @@ function buildCheatActions() {
         if(G.players[next].memory)G.players[next].memory=[null,null,null,null];
       }
       G.humanPeekedSlots=[];
-      setMessage('🎵 Musikalische Stühle! Alle Hände 1 weiter!'); render();
+      setMessage('🎵 Musical Chairs! All hands shifted 1!'); render();
     }},
-    { label: '🧹 Großreinemachen', cls: 'admin-success', fn: () => {
+    { label: '🧹 Spring Cleaning', cls: 'admin-success', fn: () => {
       const h=G.players[me()];
       for(let s=0;s<h.cards.length;s++){
         if(h.cards[s].type==='number' && h.cards[s].value>=7){
@@ -5383,15 +5386,15 @@ function buildCheatActions() {
         h.known[s]=true;
       }
       G.humanPeekedSlots=h.cards.map((_,i)=>i);
-      setMessage('🧹 Alle Karten ≥7 durch Nullen ersetzt!'); render();
+      setMessage('🧹 All cards ≥7 replaced with zeros!'); render();
     }},
-    { label: '🎁 Weihnachten', cls: 'admin-success', fn: () => {
+    { label: '🎁 Christmas', cls: 'admin-success', fn: () => {
       const gifts=[-3,-2,-1,0,-3,-2];
       for(let i=0;i<Math.min(gifts.length,G.drawPile.length);i++){
         G.drawPile[G.drawPile.length-1-i]={id:4300+i,type:'number',value:gifts[i]};
       }
       G.players[me()].totalScore-=10;
-      setMessage('🎁 Frohe Weihnachten! Top 6 Karten = Geschenke + Score -10!'); render();
+      setMessage('🎁 Merry Christmas! Top 6 cards = gifts + Score -10!'); render();
     }},
     { label: '🦠 Virus', cls: 'admin-danger', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
@@ -5402,35 +5405,35 @@ function buildCheatActions() {
           if(G.players[i].memory)G.players[i].memory[j]=null;
         }
       }
-      setMessage('🦠 Virus! Eine Gegnerkarte infiziert alle anderen (+1 pro Karte)!'); render();
+      setMessage('🦠 Virus! One opponent card infects all others (+1 per card)!'); render();
     }},
-    { label: '🏋️ Gewichtheben', cls: '', fn: () => {
+    { label: '🏋️ Weightlifting', cls: '', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         for(let s=0;s<G.players[i].cards.length;s++){
           if(G.players[i].cards[s].type==='number') G.players[i].cards[s].value=Math.min(9,G.players[i].cards[s].value+2);
           if(G.players[i].memory)G.players[i].memory[s]=null;
         }
       }
-      setMessage('🏋️ Alle Gegnerkarten +2!'); render();
+      setMessage('🏋️ All opponent cards +2!'); render();
     }},
-    { label: '🍀 Glücksklee', cls: 'admin-success', fn: () => {
+    { label: '🍀 Lucky Clover', cls: 'admin-success', fn: () => {
       const h=G.players[me()];
       for(let s=0;s<h.cards.length;s++){
         if(h.cards[s].type==='number') h.cards[s].value=Math.max(-3,h.cards[s].value-3);
         h.known[s]=true;
       }
       G.humanPeekedSlots=h.cards.map((_,i)=>i);
-      setMessage('🍀 Alle deine Karten -3!'); render();
+      setMessage('🍀 All your cards -3!'); render();
     }},
-    { label: '📦 Paket-Bombe', cls: 'admin-danger', fn: () => {
+    { label: '📦 Package Bomb', cls: 'admin-danger', fn: () => {
       const t=1+Math.floor(Math.random()*(G.numPlayers-1));
       G.players[t].cards.push({id:4500,type:'number',value:9});
       G.players[t].cards.push({id:4501,type:'number',value:9});
       if(G.players[t].memory){G.players[t].memory.push(null);G.players[t].memory.push(null);}
       G.players[t].known.push(false); G.players[t].known.push(false);
-      setMessage(`📦 ${G.players[t].name} hat 2 Extra-9er bekommen! ${G.players[t].cards.length} Karten!`); render();
+      setMessage(`📦 ${G.players[t].name} got 2 extra 9s! ${G.players[t].cards.length} cards!`); render();
     }},
-    { label: '🔀 Shuffle-Wahnsinn', cls: '', fn: () => {
+    { label: '🔀 Shuffle Madness', cls: '', fn: () => {
       const all=[];
       for(const p of G.players) for(const c of p.cards) all.push({...c});
       shuffle(all);
@@ -5442,67 +5445,67 @@ function buildCheatActions() {
         }
       }
       G.humanPeekedSlots=[];
-      setMessage('🔀 ALLE Karten aller Spieler komplett durchgemischt!'); render();
+      setMessage('🔀 ALL cards of all players completely shuffled!'); render();
     }},
     { label: '⬆️ Level Up', cls: 'admin-success', fn: () => {
       G.players[me()].totalScore-=25;
       for(let i=0;i<4;i++)G.players[me()].known[i]=true;
       G.humanPeekedSlots=[0,1,2,3];
       G.diffCfg.aiDelay=200;
-      setMessage('⬆️ Level Up! Score -25 + Hellseher + Turbo-KI!'); render();
+      setMessage('⬆️ Level Up! Score -25 + Clairvoyant + Turbo AI!'); render();
     }},
-    { label: '⬇️ Gegner Downgrade', cls: 'admin-danger', fn: () => {
+    { label: '⬇️ Opponent Downgrade', cls: 'admin-danger', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         G.players[i].totalScore+=25;
         G.players[i].known=[false,false,false,false];
         if(G.players[i].memory)G.players[i].memory=[null,null,null,null];
       }
-      setMessage('⬇️ Alle Gegner: Score +25 + totale Amnesie!'); render();
+      setMessage('⬇️ All opponents: Score +25 + total amnesia!'); render();
     }},
-    { label: '🎲 Würfel-Duell', cls: '', fn: () => {
+    { label: '🎲 Dice Duel', cls: '', fn: () => {
       const myRoll=Math.floor(Math.random()*6)+1;
       const theirRoll=Math.floor(Math.random()*6)+1;
       if(myRoll>=theirRoll){
         G.players[me()].totalScore-=myRoll*5;
-        setMessage(`🎲 Du: ${myRoll} vs Gegner: ${theirRoll} – DU GEWINNST! Score -${myRoll*5}!`);
+        setMessage(`🎲 You: ${myRoll} vs Opponent: ${theirRoll} – YOU WIN! Score -${myRoll*5}!`);
       } else {
         G.players[me()].totalScore+=theirRoll*3;
-        setMessage(`🎲 Du: ${myRoll} vs Gegner: ${theirRoll} – VERLOREN! Score +${theirRoll*3}!`);
+        setMessage(`🎲 You: ${myRoll} vs Opponent: ${theirRoll} – LOST! Score +${theirRoll*3}!`);
       }
       render();
     }},
-    { label: '🪙 Münzwurf', cls: '', fn: () => {
+    { label: '🪙 Coin Flip', cls: '', fn: () => {
       if(Math.random()<0.5){
         const v=[-3,-2,-1,0];
         for(let i=0;i<4;i++){G.players[me()].cards[i]={id:4600+i,type:'number',value:v[i]};G.players[me()].known[i]=true;}
         G.humanPeekedSlots=[0,1,2,3];
-        setMessage('🪙 KOPF! Perfekte Hand!');
+        setMessage('🪙 HEADS! Perfect hand!');
       } else {
         for(let i=0;i<4;i++){G.players[me()].cards[i]={id:4600+i,type:'number',value:9};G.players[me()].known[i]=true;}
         G.humanPeekedSlots=[0,1,2,3];
-        setMessage('🪙 ZAHL! Alles 9er! Pech gehabt!');
+        setMessage('🪙 TAILS! All 9s! Bad luck!');
       }
       render();
     }},
-    { label: '🔥 Verbrennen', cls: 'admin-danger', fn: () => {
+    { label: '🔥 Burn', cls: 'admin-danger', fn: () => {
       const burned=G.drawPile.splice(-10);
-      setMessage(`🔥 ${burned.length} Karten vom Stapel verbrannt! Noch ${G.drawPile.length} übrig!`); render();
+      setMessage(`🔥 ${burned.length} cards burned from the pile! ${G.drawPile.length} left!`); render();
     }},
-    { label: '🌍 Weltherrschaft', cls: 'admin-danger', fn: () => {
+    { label: '🌍 World Domination', cls: 'admin-danger', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         G.players[i].totalScore=Math.max(G.players[i].totalScore,G.players[me()].totalScore+50);
         G.players[i].name='🏳️ '+G.players[i].name.replace(/^🏳️ /,'');
       }
-      setMessage('🌍 Weltherrschaft! Alle Gegner mindestens 50 Punkte hinter dir!'); render();
+      setMessage('🌍 World Domination! All opponents at least 50 points behind you!'); render();
     }},
-    { label: '💉 Impfung', cls: 'admin-success', fn: () => {
+    { label: '💉 Vaccination', cls: 'admin-success', fn: () => {
       const h=G.players[me()];
       for(let s=0;s<h.cards.length;s++){
         if(h.cards[s].type!=='number') h.cards[s]={id:4700+s,type:'number',value:-2};
         h.known[s]=true;
       }
       G.humanPeekedSlots=h.cards.map((_,i)=>i);
-      setMessage('💉 Alle Sonderkarten → Eisbiber (-2)!'); render();
+      setMessage('💉 All special cards → Ice Beaver (-2)!'); render();
     }},
     { label: '🎯 Sniper', cls: 'admin-warn', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
@@ -5514,7 +5517,7 @@ function buildCheatActions() {
         G.players[i].cards[bestS]={id:4800+i,type:'number',value:9};
         if(G.players[i].memory)G.players[i].memory[bestS]=null;
       }
-      setMessage('🎯 Sniper! Beste Karte jedes Gegners → 9!'); render();
+      setMessage('🎯 Sniper! Best card of each opponent → 9!'); render();
     }},
     { label: '🧪 Alchemie', cls: 'admin-success', fn: () => {
       const h=G.players[me()];
@@ -5524,9 +5527,9 @@ function buildCheatActions() {
         h.known[s]=true;
       }
       G.humanPeekedSlots=h.cards.map((_,i)=>i);
-      setMessage('🧪 Alchemie! Alle positiven Werte → negativ!'); render();
+      setMessage('🧪 Alchemy! All positive values → negative!'); render();
     }},
-    { label: '🏴‍☠️ Kaperfahrt', cls: 'admin-warn', fn: () => {
+    { label: '🏴‍☠️ Capture', cls: 'admin-warn', fn: () => {
       let count=0;
       for(let i=1;i<G.numPlayers;i++){
         for(let s=0;s<G.players[i].cards.length;s++){
@@ -5538,17 +5541,17 @@ function buildCheatActions() {
           }
         }
       }
-      setMessage(`🏴‍☠️ ${count} niedrige Karten gekapert! Gegner haben 7-9er, gute Karten auf Stapel!`); render();
+      setMessage(`🏴‍☠️ ${count} low cards captured! Opponents have 7s-9s, good cards on pile!`); render();
     }},
     { label: '🔔 Glocke', cls: '', fn: () => {
       G.knockedBy=0; G.lastRoundTurnsLeft=G.numPlayers;
-      setMessage('🔔 Du hast geklopft! Letzte Runde!'); render();
+      setMessage('🔔 You knocked! Final round!'); render();
     }},
-    { label: '🔕 Klopfen zurücknehmen', cls: '', fn: () => {
+    { label: '🔕 Undo Knock', cls: '', fn: () => {
       G.knockedBy=-1; G.lastRoundTurnsLeft=-1;
-      setMessage('🔕 Klopfen zurückgenommen!'); render();
+      setMessage('🔕 Knock undone!'); render();
     }},
-    { label: '🧬 DNA-Tausch', cls: 'admin-warn', fn: () => {
+    { label: '🧬 DNA Swap', cls: 'admin-warn', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         for(let s=0;s<G.players[i].cards.length;s++){
           const c=G.players[i].cards[s];
@@ -5561,7 +5564,7 @@ function buildCheatActions() {
         }
       }
       G.humanPeekedSlots=G.players[me()].cards.map((_,i)=>i);
-      setMessage('🧬 DNA-Tausch: Alle niedrigen Gegnerkarten gegen deine hohen getauscht!'); render();
+      setMessage('🧬 DNA Swap: All low opponent cards swapped for your high ones!'); render();
     }},
     { label: '🌙 Nachtmodus', cls: '', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
@@ -5570,21 +5573,21 @@ function buildCheatActions() {
       }
       for(let i=0;i<4;i++)G.players[me()].known[i]=true;
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage('🌙 Nachtmodus: Du siehst alles, Gegner sind blind!'); render();
+      setMessage('🌙 Night Mode: You see everything, opponents are blind!'); render();
     }},
     { label: '☀️ Sonnenmodus', cls: 'admin-success', fn: () => {
-      let msg='Alle Hände: ';
+      let msg='All hands: ';
       for(const p of G.players){
         const vals=p.cards.map(c=>c.type==='number'?c.value:c.type.substring(0,3));
         msg+=`${p.name}:[${vals}] `;
       }
       setMessage(msg); render();
     }},
-    { label: '🃏 Joker einfügen', cls: 'admin-success', fn: () => {
+    { label: '🃏 Insert Joker', cls: 'admin-success', fn: () => {
       G.drawPile.push({id:3000,type:'number',value:-999});
       G.drawPile.push({id:3001,type:'number',value:-3});
       G.drawPile.push({id:3002,type:'number',value:-2});
-      setMessage('🃏 Überbiber + Goldbiber + Eisbiber auf den Stapel!'); render();
+      setMessage('🃏 Ultra Beaver + Gold Beaver + Ice Beaver on the pile!'); render();
     }},
     { label: '💰 Kopfgeld', cls: 'admin-danger', fn: () => {
       let bestI=1,bestS=999;
@@ -5594,18 +5597,18 @@ function buildCheatActions() {
         G.players[bestI].cards[s]={id:3100+s,type:'number',value:8};
         if(G.players[bestI].memory)G.players[bestI].memory[s]=null;
       }
-      setMessage(`💰 Kopfgeld auf ${G.players[bestI].name}! Score +75 + alle 8er!`); render();
+      setMessage(`💰 Bounty on ${G.players[bestI].name}! Score +75 + all 8s!`); render();
     }},
-    { label: '🎪 Karten-Lotterie', cls: '', fn: () => {
+    { label: '🎪 Card Lottery', cls: '', fn: () => {
       const prize=Math.floor(Math.random()*13)-3;
       for(let i=0;i<4;i++){G.players[me()].cards[i]={id:3200+i,type:'number',value:prize};G.players[me()].known[i]=true;}
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage(`🎪 Lotterie! Alle deine Karten sind ${prize}!`); render();
+      setMessage(`🎪 Lottery! All your cards are ${prize}!`); render();
     }},
     { label: '💫 Sternenstaub', cls: 'admin-success', fn: () => {
       for(let i=0;i<8;i++) G.drawPile.push({id:3300+i,type:'number',value:Math.floor(Math.random()*3)-3});
       shuffle(G.drawPile);
-      setMessage('💫 8 Minus-Karten (-3 bis -1) in den Stapel gestreut!'); render();
+      setMessage('💫 8 minus cards (-3 to -1) scattered into the pile!'); render();
     }},
     { label: '🧨 Dynamit', cls: 'admin-danger', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
@@ -5614,13 +5617,13 @@ function buildCheatActions() {
         G.players[i].known.splice(s,0,false);
         if(G.players[i].memory)G.players[i].memory.splice(s,0,null);
       }
-      setMessage(`🧨 Dynamit! Jeder Gegner hat 1 Extra-9er (${G.players[1].cards.length} Karten)!`); render();
+      setMessage(`🧨 Dynamite! Each opponent has 1 extra 9 (${G.players[1].cards.length} cards)!`); render();
     }},
     { label: '🏰 Burgmauer', cls: 'admin-success', fn: () => {
       const h=G.players[me()];
       const low=h.cards.filter(c=>c.type==='number'&&c.value<=2).length;
       h.totalScore-=low*5;
-      setMessage(`🏰 Burgmauer! ${low} niedrige Karten × -5 = Score -${low*5}!`); render();
+      setMessage(`🏰 Castle Wall! ${low} low cards × -5 = Score -${low*5}!`); render();
     }},
     { label: '⚔️ Duell', cls: 'admin-warn', fn: () => {
       const t=1+Math.floor(Math.random()*(G.numPlayers-1));
@@ -5628,20 +5631,20 @@ function buildCheatActions() {
       const theirSum=G.players[t].cards.reduce((a,c)=>a+(c.type==='number'?c.value:0),0);
       if(mySum<=theirSum){
         G.players[t].totalScore+=20;
-        setMessage(`⚔️ Duell vs ${G.players[t].name}: DU GEWINNST (${mySum} vs ${theirSum})! Gegner +20!`);
+        setMessage(`⚔️ Duel vs ${G.players[t].name}: YOU WIN (${mySum} vs ${theirSum})! Opponent +20!`);
       } else {
         G.players[me()].totalScore+=10;
-        setMessage(`⚔️ Duell vs ${G.players[t].name}: VERLOREN (${mySum} vs ${theirSum})! Du +10!`);
+        setMessage(`⚔️ Duel vs ${G.players[t].name}: LOST (${mySum} vs ${theirSum})! You +10!`);
       }
       render();
     }},
-    { label: '🪄 Verzaubern', cls: 'admin-success', fn: () => {
+    { label: '🪄 Enchant', cls: 'admin-success', fn: () => {
       const h=G.players[me()];
       let ws=0,wv=-999;
       for(let s=0;s<h.cards.length;s++){const v=h.cards[s].type==='number'?h.cards[s].value:99;if(v>wv){wv=v;ws=s;}}
       h.cards[ws]={id:3500,type:'number',value:Math.max(-3,wv-8)};
       h.known[ws]=true; G.humanPeekedSlots=h.cards.map((_,i)=>i);
-      setMessage(`🪄 Schlechteste Karte (${wv}) verzaubert zu ${h.cards[ws].value}!`); render();
+      setMessage(`🪄 Worst card (${wv}) enchanted to ${h.cards[ws].value}!`); render();
     }},
     { label: '🌋 Vulkan', cls: 'admin-danger', fn: () => {
       for(const p of G.players){
@@ -5650,9 +5653,9 @@ function buildCheatActions() {
         p.known[s]=false; if(p.memory)p.memory[s]=null;
       }
       G.humanPeekedSlots=[];
-      setMessage('🌋 Vulkan! 1 zufällige Karte jedes Spielers durch Zufallswert ersetzt!'); render();
+      setMessage('🌋 Volcano! 1 random card of each player replaced with random value!'); render();
     }},
-    { label: '🎭 Maskenball', cls: '', fn: () => {
+    { label: '🎭 Masquerade', cls: '', fn: () => {
       const indices=[...Array(G.numPlayers).keys()];
       for(let i=indices.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[indices[i],indices[j]]=[indices[j],indices[i]];}
       const hands=G.players.map(p=>p.cards.map(c=>({...c})));
@@ -5662,9 +5665,9 @@ function buildCheatActions() {
         if(G.players[i].memory)G.players[i].memory=[null,null,null,null];
       }
       G.humanPeekedSlots=[];
-      setMessage('🎭 Maskenball! Alle Hände zufällig vertauscht!'); render();
+      setMessage('🎭 Masquerade! All hands randomly swapped!'); render();
     }},
-    { label: '🤝 Friedensvertrag', cls: '', fn: () => {
+    { label: '🤝 Peace Treaty', cls: '', fn: () => {
       const avg=Math.round(G.players.reduce((s,p)=>s+p.totalScore,0)/G.numPlayers);
       for(const p of G.players){p.totalScore=avg;}
       const avgHand=Math.round(G.players.reduce((s,p)=>s+p.cards.reduce((a,c)=>a+(c.type==='number'?c.value:0),0),0)/G.numPlayers/4);
@@ -5672,14 +5675,14 @@ function buildCheatActions() {
         for(let s=0;s<p.cards.length;s++){p.cards[s]={id:3700+s,type:'number',value:avgHand};p.known[s]=false;if(p.memory)p.memory[s]=null;}
       }
       G.humanPeekedSlots=[];
-      setMessage(`🤝 Friedensvertrag! Alle Scores = ${avg}, alle Karten = ${avgHand}!`); render();
+      setMessage(`🤝 Peace Treaty! All scores = ${avg}, all cards = ${avgHand}!`); render();
     }},
-    { label: '🎂 Geburtstag', cls: 'admin-success', fn: () => {
+    { label: '🎂 Birthday', cls: 'admin-success', fn: () => {
       G.players[me()].totalScore-=20;
       G.drawPile.push({id:3800,type:'number',value:-3},{id:3801,type:'number',value:-2},{id:3802,type:'number',value:-1});
       for(let i=0;i<4;i++)G.players[me()].known[i]=true;
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage('🎂 Happy Birthday! Score -20 + 3 Minus-Karten auf Stapel + Hellseher!'); render();
+      setMessage('🎂 Happy Birthday! Score -20 + 3 minus cards on pile + Clairvoyant!'); render();
     }},
     { label: '📡 Radar', cls: 'admin-success', fn: () => {
       let info='';
@@ -5694,7 +5697,7 @@ function buildCheatActions() {
       const good=G.drawPile.filter(c=>c.type==='number'&&c.value<=0).slice(0,4);
       G.drawPile=G.drawPile.filter(c=>!good.includes(c));
       for(const c of good)G.drawPile.push(c);
-      setMessage(`🧲 ${good.length} niedrige Karten nach oben auf den Stapel gezogen!`); render();
+      setMessage(`🧲 ${good.length} low cards pulled to top of pile!`); render();
     }},
     { label: '💀 Pest', cls: 'admin-danger', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
@@ -5704,16 +5707,16 @@ function buildCheatActions() {
           if(G.players[i].memory)G.players[i].memory[s]=null;
         }
       }
-      setMessage('💀 Pest! Alle Gegnerkarten +3!'); render();
+      setMessage('💀 Plague! All opponent cards +3!'); render();
     }},
-    { label: '🏥 Heilung', cls: 'admin-success', fn: () => {
+    { label: '🏥 Healing', cls: 'admin-success', fn: () => {
       const h=G.players[me()];
       for(let s=0;s<h.cards.length;s++){
         if(h.cards[s].type==='number'&&h.cards[s].value>3) h.cards[s].value=Math.max(0,h.cards[s].value-4);
         h.known[s]=true;
       }
       G.humanPeekedSlots=h.cards.map((_,i)=>i);
-      setMessage('🏥 Alle Karten >3 um 4 geheilt!'); render();
+      setMessage('🏥 All cards >3 reduced by 4!'); render();
     }},
     { label: '🎮 Konami Code', cls: 'admin-danger', fn: () => {
       const v=[-999,-3,-2,-1];
@@ -5721,10 +5724,10 @@ function buildCheatActions() {
       G.humanPeekedSlots=[0,1,2,3];
       G.players[me()].totalScore-=100;
       for(let i=1;i<G.numPlayers;i++){G.players[i].totalScore+=100;if(G.players[i].memory)G.players[i].memory=[null,null,null,null];}
-      setMessage('🎮 ↑↑↓↓←→←→BA! KONAMI CODE! Alles aktiviert!'); render();
+      setMessage('🎮 ↑↑↓↓←→←→BA! KONAMI CODE! Everything activated!'); render();
     }},
-    // ==================== FLUCHBIBER ZONE ====================
-    { label: '☠️ Fluchbiber geben (Gegner)', cls: 'admin-danger', fn: () => {
+    // ==================== CURSE BEAVER ZONE ====================
+    { label: '☠️ Give Curse Beaver (Opponent)', cls: 'admin-danger', fn: () => {
       const t=1+Math.floor(Math.random()*(G.numPlayers-1));
       let bs=0,bv=-999;
       for(let s=0;s<G.players[t].cards.length;s++){
@@ -5733,29 +5736,29 @@ function buildCheatActions() {
       }
       G.players[t].cards[bs]={id:2000,type:'number',value:999};
       if(G.players[t].memory)G.players[t].memory[bs]=null;
-      setMessage(`☠️ ${G.players[t].name} hat den FLUCHBIBER (+∞)! Beste Karte ersetzt!`); render();
+      setMessage(`☠️ ${G.players[t].name} has the CURSE BEAVER (+∞)! Best card replaced!`); render();
     }},
-    { label: '☠️ Alle Gegner verfluchen', cls: 'admin-danger', fn: () => {
+    { label: '☠️ Curse All Opponents', cls: 'admin-danger', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         const s=Math.floor(Math.random()*G.players[i].cards.length);
         G.players[i].cards[s]={id:2010+i,type:'number',value:999};
         if(G.players[i].memory)G.players[i].memory[s]=null;
       }
-      setMessage('☠️ ALLE Gegner haben einen Fluchbiber (+∞)!'); render();
+      setMessage('☠️ ALL opponents have a Curse Beaver (+∞)!'); render();
     }},
-    { label: '☠️ Fluchbiber auf Stapel', cls: 'admin-warn', fn: () => {
+    { label: '☠️ Curse Beaver on Pile', cls: 'admin-warn', fn: () => {
       G.drawPile.push({id:2020,type:'number',value:999});
-      setMessage('☠️ Fluchbiber oben auf dem Stapel – Vorsicht!'); render();
+      setMessage('☠️ Curse Beaver on top of pile – beware!'); render();
     }},
-    { label: '☠️ 4x Fluchbiber (Gegner)', cls: 'admin-danger', fn: () => {
+    { label: '☠️ 4x Curse Beaver (Opponent)', cls: 'admin-danger', fn: () => {
       const t=1+Math.floor(Math.random()*(G.numPlayers-1));
       for(let s=0;s<G.players[t].cards.length;s++){
         G.players[t].cards[s]={id:2030+s,type:'number',value:999};
         if(G.players[t].memory)G.players[t].memory[s]=null;
       }
-      setMessage(`☠️☠️☠️☠️ ${G.players[t].name}: ALLE KARTEN = FLUCHBIBER! +3996 Punkte!`); render();
+      setMessage(`☠️☠️☠️☠️ ${G.players[t].name}: ALL CARDS = CURSE BEAVER! +3996 points!`); render();
     }},
-    { label: '⚔️ Über vs Fluch', cls: 'admin-warn', fn: () => {
+    { label: '⚔️ Ultra vs Curse', cls: 'admin-warn', fn: () => {
       const h=G.players[me()];
       let ws=0,wv=-9999;
       for(let s=0;s<h.cards.length;s++){const v=h.cards[s].type==='number'?h.cards[s].value:99;if(v>wv){wv=v;ws=s;}}
@@ -5766,18 +5769,18 @@ function buildCheatActions() {
       G.players[t].cards[bs2]={id:2041,type:'number',value:999};
       if(G.players[t].memory)G.players[t].memory[bs2]=null;
       G.humanPeekedSlots=h.cards.map((_,i)=>i);
-      setMessage(`⚔️ Du: Überbiber (−∞) | ${G.players[t].name}: Fluchbiber (+∞)!`); render();
+      setMessage(`⚔️ You: Ultra Beaver (−∞) | ${G.players[t].name}: Curse Beaver (+∞)!`); render();
     }},
-    { label: '🎰 Fluch-Roulette', cls: 'admin-danger', fn: () => {
+    { label: '🎰 Curse Roulette', cls: 'admin-danger', fn: () => {
       const target=Math.floor(Math.random()*G.numPlayers);
       const s=Math.floor(Math.random()*G.players[target].cards.length);
       G.players[target].cards[s]={id:2050,type:'number',value:999};
       if(target===0){G.players[me()].known[s]=true;G.humanPeekedSlots=G.players[me()].cards.map((_,i)=>i);}
       else{if(G.players[target].memory)G.players[target].memory[s]=null;}
-      setMessage(`🎰 Fluch-Roulette: ${G.players[target].name} hat den Fluchbiber! ${target===0?'DU BIST ES!':'Glück gehabt!'}`); render();
+      setMessage(`🎰 Curse Roulette: ${G.players[target].name} has the Curse Beaver! ${target===0?'IT\'S YOU!':'Lucky you!'}`); render();
     }},
     // ==================== NEUE COOLE SACHEN ====================
-    { label: '🔮 Zeitmaschine', cls: 'admin-success', fn: () => {
+    { label: '🔮 Time Machine', cls: 'admin-success', fn: () => {
       for(const p of G.players){
         if(p.roundScores.length>0){
           p.totalScore-=p.roundScores[p.roundScores.length-1];
@@ -5786,9 +5789,9 @@ function buildCheatActions() {
       }
       if(G.roundNumber>1)G.roundNumber--;
       startRound();
-      setMessage('🔮 Zeitmaschine: Letzte Runde rückgängig gemacht!');
+      setMessage('🔮 Time Machine: Last round undone!');
     }},
-    { label: '🎯 Tödliche Präzision', cls: 'admin-danger', fn: () => {
+    { label: '🎯 Deadly Precision', cls: 'admin-danger', fn: () => {
       for(let i=1;i<G.numPlayers;i++){
         let bs=0,bv=999;
         for(let s=0;s<G.players[i].cards.length;s++){
@@ -5798,19 +5801,19 @@ function buildCheatActions() {
         G.players[i].cards[bs]={id:2100+i,type:'number',value:999};
         if(G.players[i].memory)G.players[i].memory[bs]=null;
       }
-      setMessage('🎯 Tödliche Präzision: Beste Karte jedes Gegners → Fluchbiber!'); render();
+      setMessage('🎯 Deadly Precision: Best card of each opponent → Curse Beaver!'); render();
     }},
-    { label: '🌈 Regenbogen-Stapel', cls: 'admin-success', fn: () => {
+    { label: '🌈 Rainbow Pile', cls: 'admin-success', fn: () => {
       const rainbow=[-999,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,999];
       for(let i=0;i<rainbow.length;i++)
         G.drawPile.push({id:2200+i,type:'number',value:rainbow[i]});
-      setMessage('🌈 Regenbogen: Von −∞ bis +∞ alles auf dem Stapel!'); render();
+      setMessage('🌈 Rainbow: From −∞ to +∞ everything on the pile!'); render();
     }},
-    { label: '🏆 Trophäen-Jagd', cls: 'admin-success', fn: () => {
+    { label: '🏆 Trophy Hunt', cls: 'admin-success', fn: () => {
       const h=G.players[me()];
       const sum=h.cards.reduce((a,c)=>a+(c.type==='number'?c.value:0),0);
-      if(sum<=0){h.totalScore-=Math.abs(sum)*3;setMessage(`🏆 Handwert ${sum} → Score -${Math.abs(sum)*3}! 3x Bonus!`);}
-      else{setMessage(`🏆 Handwert ${sum} – zu hoch für Trophäe! (brauchst ≤0)`);}
+      if(sum<=0){h.totalScore-=Math.abs(sum)*3;setMessage(`🏆 Hand value ${sum} → Score -${Math.abs(sum)*3}! 3x bonus!`);}
+      else{setMessage(`🏆 Hand value ${sum} – too high for trophy! (need ≤0)`);}
       render();
     }},
     { label: '🎪 Extremes Chaos', cls: 'admin-danger', fn: () => {
@@ -5819,7 +5822,7 @@ function buildCheatActions() {
       for(let i=0;i<2;i++)executeBlitz();
       for(const p of G.players){p.known=[false,false,false,false];if(p.memory)p.memory=[null,null,null,null];}
       G.humanPeekedSlots=[];
-      setMessage('🎪 EXTREMES CHAOS! 3x Chaos + Tornado + 2x Blitz + Amnesie!'); render();
+      setMessage('🎪 EXTREME CHAOS! 3x Chaos + Tornado + 2x Lightning + Amnesia!'); render();
     }},
     { label: '💎 Diamantenmine', cls: 'admin-success', fn: () => {
       G.drawPile=[];
@@ -5827,14 +5830,14 @@ function buildCheatActions() {
       for(let i=0;i<5;i++)G.drawPile.push({id:2310+i,type:'number',value:-3});
       for(let i=0;i<5;i++)G.drawPile.push({id:2320+i,type:'number',value:-2});
       shuffle(G.drawPile);
-      setMessage('💎 Diamantenmine! Stapel voller Überbiber + Goldbiber + Eisbiber!'); render();
+      setMessage('💎 Diamond Mine! Pile full of Ultra Beaver + Gold Beaver + Ice Beaver!'); render();
     }},
-    { label: '🕳️ Hölle', cls: 'admin-danger', fn: () => {
+    { label: '🕳️ Hell', cls: 'admin-danger', fn: () => {
       G.drawPile=[];
       for(let i=0;i<10;i++)G.drawPile.push({id:2400+i,type:'number',value:999});
       for(let i=0;i<10;i++)G.drawPile.push({id:2410+i,type:'number',value:9});
       shuffle(G.drawPile);
-      setMessage('🕳️ Hölle! Stapel voller Fluchbiber + Neuner!'); render();
+      setMessage('🕳️ Hell! Pile full of Curse Beaver + nines!'); render();
     }},
     { label: '⚖️ Yin & Yang', cls: '', fn: () => {
       const h=G.players[me()];
@@ -5842,7 +5845,7 @@ function buildCheatActions() {
       h.cards[2]={id:2502,type:'number',value:999}; h.cards[3]={id:2503,type:'number',value:9};
       for(let i=0;i<4;i++)h.known[i]=true;
       G.humanPeekedSlots=[0,1,2,3];
-      setMessage('⚖️ Yin & Yang: −∞, -3, +∞, 9 – Gut und Böse vereint!'); render();
+      setMessage('⚖️ Yin & Yang: −∞, -3, +∞, 9 – Good and evil united!'); render();
     }},
     { label: '🃏 Wildcard', cls: 'admin-warn', fn: () => {
       const vals=[-999,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,999];
@@ -5852,7 +5855,7 @@ function buildCheatActions() {
       for(let s=0;s<h.cards.length;s++){const cv=h.cards[s].type==='number'?h.cards[s].value:99;if(cv>wv){wv=cv;ws=s;}}
       h.cards[ws]={id:2600,type:'number',value:v};h.known[ws]=true;
       G.humanPeekedSlots=h.cards.map((_,i)=>i);
-      setMessage(`🃏 Wildcard! Zufälliger Wert: ${v===999?'+∞':v===-999?'−∞':v}! ${v<=0?'GLÜCK!':'Meh...'}`); render();
+      setMessage(`🃏 Wildcard! Random value: ${v===999?'+∞':v===-999?'−∞':v}! ${v<=0?'LUCK!':'Meh...'}`); render();
     }},
     { label: '🌪️ Apokalypse', cls: 'admin-danger', fn: () => {
       for(let i=0;i<3;i++)executeChaosbiber();
@@ -5866,7 +5869,7 @@ function buildCheatActions() {
       G.humanPeekedSlots=[];
       const h=G.players[me()];
       h.cards[Math.floor(Math.random()*h.cards.length)]={id:2700,type:'number',value:-999};
-      setMessage('🌪️ APOKALYPSE! Chaos+Tornado+alle Karten +0-4... aber du hast 1 Überbiber!'); render();
+      setMessage('🌪️ APOCALYPSE! Chaos+Tornado+all cards +0-4... but you have 1 Ultra Beaver!'); render();
     }},
   ];
 
@@ -5883,7 +5886,7 @@ function buildCheatActions() {
 }
 
 function buildSwapHands() {
-  const sec = adminSection('🔀 Hände tauschen');
+  const sec = adminSection('🔀 Swap Hands');
   const row = document.createElement('div');
   row.style.cssText = 'display:flex;gap:6px;align-items:center;flex-wrap:wrap;';
 
@@ -5908,7 +5911,7 @@ function buildSwapHands() {
 
   const btn = document.createElement('button');
   btn.className = 'admin-btn admin-warn';
-  btn.textContent = 'Tauschen!';
+  btn.textContent = 'Swap!';
   btn.addEventListener('click', () => {
     const a = parseInt(sel1.value);
     const b = parseInt(sel2.value);
@@ -5943,7 +5946,7 @@ function buildExportImport() {
 
   const expBtn = document.createElement('button');
   expBtn.className = 'admin-btn admin-success';
-  expBtn.textContent = '📋 State kopieren';
+  expBtn.textContent = '📋 Copy State';
   expBtn.addEventListener('click', () => {
     const state = {
       G: {
@@ -5962,8 +5965,8 @@ function buildExportImport() {
       xrayMode, autoPlay,
     };
     navigator.clipboard.writeText(JSON.stringify(state)).then(() => {
-      expBtn.textContent = '✅ Kopiert!';
-      setTimeout(() => { expBtn.textContent = '📋 State kopieren'; }, 1500);
+      expBtn.textContent = '✅ Copied!';
+      setTimeout(() => { expBtn.textContent = '📋 Copy State'; }, 1500);
     });
   });
   sec.appendChild(expBtn);
@@ -5972,13 +5975,13 @@ function buildExportImport() {
   impRow.style.cssText = 'margin-top:8px;';
   const ta = document.createElement('textarea');
   ta.style.cssText = 'width:100%;height:60px;border-radius:6px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:var(--text-light);font-family:monospace;font-size:0.68rem;padding:6px;resize:vertical;';
-  ta.placeholder = 'JSON einfügen…';
+  ta.placeholder = 'Paste JSON…';
   impRow.appendChild(ta);
 
   const impBtn = document.createElement('button');
   impBtn.className = 'admin-btn admin-warn';
   impBtn.style.marginTop = '4px';
-  impBtn.textContent = '📥 State laden';
+  impBtn.textContent = '📥 Load State';
   impBtn.addEventListener('click', () => {
     try {
       const data = JSON.parse(ta.value);
@@ -5989,12 +5992,12 @@ function buildExportImport() {
         if (data.autoPlay !== undefined) autoPlay = data.autoPlay;
         render();
         renderAdmin();
-        impBtn.textContent = '✅ Geladen!';
-        setTimeout(() => { impBtn.textContent = '📥 State laden'; }, 1500);
+        impBtn.textContent = '✅ Loaded!';
+        setTimeout(() => { impBtn.textContent = '📥 Load State'; }, 1500);
       }
     } catch (e) {
-      impBtn.textContent = '❌ Fehler!';
-      setTimeout(() => { impBtn.textContent = '📥 State laden'; }, 1500);
+      impBtn.textContent = '❌ Error!';
+      setTimeout(() => { impBtn.textContent = '📥 Load State'; }, 1500);
     }
   });
   impRow.appendChild(impBtn);
@@ -6003,29 +6006,29 @@ function buildExportImport() {
 }
 
 function buildClearData() {
-  const sec = adminSection('🗑 Daten löschen');
+  const sec = adminSection('🗑 Clear Data');
   const row = document.createElement('div');
   row.className = 'admin-actions';
 
   const clearHS = document.createElement('button');
   clearHS.className = 'admin-btn admin-danger';
-  clearHS.textContent = '🏆 Bestenliste löschen';
+  clearHS.textContent = '🏆 Clear High Scores';
   clearHS.addEventListener('click', () => {
     localStorage.removeItem('biberbande_highscores');
     renderHighScores();
-    clearHS.textContent = '✅ Gelöscht!';
-    setTimeout(() => { clearHS.textContent = '🏆 Bestenliste löschen'; }, 1500);
+    clearHS.textContent = '✅ Cleared!';
+    setTimeout(() => { clearHS.textContent = '🏆 Clear High Scores'; }, 1500);
   });
   row.appendChild(clearHS);
 
   const clearAll = document.createElement('button');
   clearAll.className = 'admin-btn admin-danger';
-  clearAll.textContent = '💣 Alle Daten löschen';
+  clearAll.textContent = '💣 Clear All Data';
   clearAll.addEventListener('click', () => {
     localStorage.clear();
     renderHighScores();
-    clearAll.textContent = '✅ Alles gelöscht!';
-    setTimeout(() => { clearAll.textContent = '💣 Alle Daten löschen'; }, 1500);
+    clearAll.textContent = '✅ All cleared!';
+    setTimeout(() => { clearAll.textContent = '💣 Clear All Data'; }, 1500);
   });
   row.appendChild(clearAll);
 
@@ -6035,25 +6038,25 @@ function buildClearData() {
 
 // ── Card Reference ──────────────────────────────────────────
 const CARD_REFERENCE = [
-  { icon: '🌌', name: 'Überbiber', points: '−∞', count: 1, desc: 'DIE LEGENDÄRE KARTE! Zählt -999 Punkte. Wer sie hat, hat quasi gewonnen. Ultra-ultra-mega-selten!' },
-  { icon: '👑', name: 'Goldbiber', points: '-3', count: 1, desc: 'Die seltenste Karte im Spiel! Zählt minus 3 Punkte. Ultra-wertvoll!' },
-  { icon: '🧊', name: 'Eisbiber', points: '-2', count: 2, desc: 'Sehr wertvolle Karte! Zählt minus 2 Punkte.' },
-  { icon: '💎', name: 'Null-Biber', points: '-1', count: 4, desc: 'Wertvolle Karte! Zählt minus 1 Punkt.' },
-  { icon: '0️⃣', name: 'Null', points: '0', count: 4, desc: 'Null Punkte – sehr gut!' },
-  { icon: '🔢', name: 'Zahlenkarten 1–8', points: '1–8', count: '4 je Wert', desc: 'Zählen ihren aufgedruckten Wert als Punkte.' },
-  { icon: '💀', name: 'Neuner', points: '9', count: 9, desc: 'Höchster Wert! Schnell loswerden!' },
-  { icon: '☠️', name: 'Fluchbiber', points: '+∞', count: 1, desc: 'DIE VERFLUCHTE KARTE! Zählt +999 Punkte. Wer sie hat, hat quasi verloren. SOFORT LOSWERDEN!' },
-  { icon: '👁', name: 'Spähen', points: '–', count: 7, desc: 'Eine eigene Karte ansehen.' },
-  { icon: '🔄', name: 'Tausch', points: '–', count: 9, desc: 'Eine eigene Karte blind mit einem Mitspieler tauschen.' },
-  { icon: '2️⃣', name: '2× Ziehen', points: '–', count: 5, desc: 'Zwei Karten nacheinander vom Stapel ziehen und nutzen.' },
-  { icon: '🌀', name: 'Chaosbiber', points: '–', count: 3, desc: 'Je eine zufällige Karte jedes Spielers wird wild durchgemischt!' },
-  { icon: '🕵️', name: 'Spion', points: '–', count: 3, desc: 'Eine Karte eines Mitspielers heimlich ansehen.' },
-  { icon: '⚡', name: 'Blitz', points: '–', count: 2, desc: 'Alle Spieler schieben ihre erste Karte nach links weiter.' },
-  { icon: '🌪️', name: 'Tornado', points: '–', count: 1, desc: 'ALLE Karten aller Spieler werden komplett neu verteilt! Ultra-selten!' },
-  { icon: '❄️', name: 'Freeze', points: '–', count: 2, desc: 'Der nächste Spieler wird übersprungen und verliert seinen Zug.' },
-  { icon: '🪞', name: 'Spiegel', points: '–', count: 2, desc: 'Zwei eigene Karten gleichzeitig ansehen – doppelter Durchblick!' },
-  { icon: '🦝', name: 'Dieb', points: '–', count: 2, desc: 'Gegner-Karte ansehen und optional gegen eine eigene tauschen!' },
-  { icon: '🍀', name: 'Glückspilz', points: '–', count: 2, desc: '3 Karten vom Stapel ziehen und die beste behalten!' },
+  { icon: '🌌', name: 'Ultra Beaver', points: '−∞', count: 1, desc: 'THE LEGENDARY CARD! Worth -999 points. Whoever has it has basically won. Ultra-ultra-mega-rare!' },
+  { icon: '👑', name: 'Gold Beaver', points: '-3', count: 1, desc: 'The rarest card in the game! Worth minus 3 points. Ultra valuable!' },
+  { icon: '🧊', name: 'Ice Beaver', points: '-2', count: 2, desc: 'Very valuable card! Worth minus 2 points.' },
+  { icon: '💎', name: 'Zero Beaver', points: '-1', count: 4, desc: 'Valuable card! Worth minus 1 point.' },
+  { icon: '0️⃣', name: 'Zero', points: '0', count: 4, desc: 'Zero points – very good!' },
+  { icon: '🔢', name: 'Number Cards 1–8', points: '1–8', count: '4 per value', desc: 'Worth their printed value as points.' },
+  { icon: '💀', name: 'Nines', points: '9', count: 9, desc: 'Highest value! Get rid of them fast!' },
+  { icon: '☠️', name: 'Curse Beaver', points: '+∞', count: 1, desc: 'THE CURSED CARD! Worth +999 points. Whoever has it has basically lost. GET RID OF IT NOW!' },
+  { icon: '👁', name: 'Peek', points: '–', count: 7, desc: 'Look at one of your own cards.' },
+  { icon: '🔄', name: 'Swap', points: '–', count: 9, desc: 'Blindly swap one of your cards with another player.' },
+  { icon: '2️⃣', name: 'Draw Two', points: '–', count: 5, desc: 'Draw two cards from the pile one after another.' },
+  { icon: '🌀', name: 'Chaos Beaver', points: '–', count: 3, desc: 'One random card from each player gets wildly shuffled!' },
+  { icon: '🕵️', name: 'Spy', points: '–', count: 3, desc: 'Secretly peek at one of another player\'s cards.' },
+  { icon: '⚡', name: 'Lightning', points: '–', count: 2, desc: 'All players pass their first card to the left.' },
+  { icon: '🌪️', name: 'Tornado', points: '–', count: 1, desc: 'ALL cards of all players get completely redistributed! Ultra rare!' },
+  { icon: '❄️', name: 'Freeze', points: '–', count: 2, desc: 'The next player is skipped and loses their turn.' },
+  { icon: '🪞', name: 'Mirror', points: '–', count: 2, desc: 'Peek at two of your own cards at once – double insight!' },
+  { icon: '🦝', name: 'Thief', points: '–', count: 2, desc: 'Peek at an opponent\'s card and optionally swap it for one of yours!' },
+  { icon: '🍀', name: 'Lucky', points: '–', count: 2, desc: 'Draw 3 cards from the pile and keep the best one!' },
 ];
 
 function showCardReference() {
@@ -6068,7 +6071,7 @@ function showCardReference() {
       <div class="card-ref-info">
         <div class="card-ref-name">${ref.name}</div>
         <div class="card-ref-desc">${ref.desc}</div>
-        <div class="card-ref-meta">Punkte: <strong>${ref.points}</strong> · Anzahl: <strong>${ref.count}</strong></div>
+        <div class="card-ref-meta">Points: <strong>${ref.points}</strong> · Count: <strong>${ref.count}</strong></div>
       </div>
     `;
     grid.appendChild(item);
@@ -6084,9 +6087,9 @@ function loadHighScores() {
 }
 
 function saveHighScore(name, score, difficulty, numPlayers, won) {
-  const diffLabels = { easy: 'Leicht', medium: 'Mittel', hard: 'Schwer', impossible: 'Unmöglich' };
+  const diffLabels = { easy: 'Easy', medium: 'Medium', hard: 'Hard', impossible: 'Impossible' };
   const scores = loadHighScores();
-  scores.push({ name, score, difficulty: diffLabels[difficulty] || difficulty, numPlayers, won, date: new Date().toLocaleDateString('de-DE') });
+  scores.push({ name, score, difficulty: diffLabels[difficulty] || difficulty, numPlayers, won, date: new Date().toLocaleDateString('en-US') });
   scores.sort((a, b) => a.score - b.score);
   if (scores.length > 10) scores.length = 10;
   localStorage.setItem('biberbande_highscores', JSON.stringify(scores));
@@ -6098,11 +6101,11 @@ function renderHighScores() {
   const scores = loadHighScores();
 
   if (scores.length === 0) {
-    container.innerHTML = '<div class="no-scores">Noch keine Einträge – spiel ein Spiel!</div>';
+    container.innerHTML = '<div class="no-scores">No entries yet – play a game!</div>';
     return;
   }
 
-  let html = '<table class="highscore-table"><thead><tr><th>#</th><th>Name</th><th>Pkt</th><th>Diff.</th><th>Datum</th></tr></thead><tbody>';
+  let html = '<table class="highscore-table"><thead><tr><th>#</th><th>Name</th><th>Pts</th><th>Diff.</th><th>Date</th></tr></thead><tbody>';
   scores.forEach((s, i) => {
     const cls = s.won ? ' class="hs-winner"' : '';
     html += `<tr${cls}><td>${i + 1}.</td><td>${s.name}${s.won ? ' 🏆' : ''}</td><td>${s.score}</td><td>${s.difficulty}</td><td>${s.date}</td></tr>`;
